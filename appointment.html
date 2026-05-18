@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Book Appointment | HealthTouch</title>
+    <meta name="description" content="Book an appointment at HealthTouch Physio & Rehab Centre in Pondicherry. Easy WhatsApp booking.">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+        .booking-container {
+            max-width: 800px;
+            margin: -50px auto 100px;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <section class="page-header animate-fade-in-up">
+        <div class="container">
+            <span class="section-tag">Take the First Step</span>
+            <h1 class="section-title" style="font-size:3.5rem;">Book Your <span class="gradient-text">Appointment</span></h1>
+            <p class="section-subtitle">Fill out the form below and we will confirm your appointment via WhatsApp.</p>
+        </div>
+    </section>
+
+    <section style="padding-top:0;">
+        <div class="container">
+            <div class="booking-container">
+                <div class="glass-form animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <form id="mainAppointmentForm">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91 xxxxx xxxxx" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address (Optional)</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                        
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div class="form-group">
+                                <label for="serviceSelect">Service Required</label>
+                                <select id="serviceSelect" required>
+                                    <option value="" disabled selected>Select a Service</option>
+                                    <optgroup label="Physiotherapy">
+                                        <option value="Back Pain Treatment">Back Pain Treatment</option>
+                                        <option value="Neck Pain Physiotherapy">Neck Pain Physiotherapy</option>
+                                        <option value="Shoulder Pain Treatment">Shoulder Pain Treatment</option>
+                                        <option value="Knee Pain Therapy">Knee Pain Therapy</option>
+                                        <option value="Sciatica & Nerve Therapies">Sciatica & Nerve Therapies</option>
+                                        <option value="Chronic Pain Management">Chronic Pain Management</option>
+                                        <option value="Joint Stiffness & Arthritis Care">Joint Stiffness & Arthritis Care</option>
+                                    </optgroup>
+                                    <optgroup label="Rehabilitation">
+                                        <option value="Post-Operative Rehabilitation">Post-Operative Rehabilitation</option>
+                                        <option value="Sports Injury Recovery">Sports Injury Recovery</option>
+                                        <option value="Neurological Rehabilitation">Neurological Rehabilitation</option>
+                                        <option value="Cardiorespiratory Rehab">Cardiorespiratory Rehab</option>
+                                        <option value="Geriatric & Mobility Training">Geriatric & Mobility Training</option>
+                                        <option value="Pediatric Rehabilitation">Pediatric Rehabilitation</option>
+                                        <option value="Women's Health & Diastasis Recti">Women's Health & Diastasis Recti</option>
+                                    </optgroup>
+                                    <optgroup label="Wellness">
+                                        <option value="Ergonomic Posture Assessment">Ergonomic Posture Assessment</option>
+                                        <option value="Medical & Sports Massage">Medical & Sports Massage</option>
+                                        <option value="Clinical Pilates & Core Training">Clinical Pilates & Core Training</option>
+                                        <option value="Preventive Strength & Flexibility">Preventive Strength & Flexibility</option>
+                                        <option value="Balance & Fall Prevention">Balance & Fall Prevention</option>
+                                        <option value="Lifestyle & Weight Management Advice">Lifestyle & Weight Management Advice</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date">
+                            </div>
+                        </div>
+                        
+                        <!-- Location removed -->
+                        
+                        <div class="form-group">
+                            <label for="info">Additional Information / Symptoms</label>
+                            <textarea id="info" rows="4" placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-large" style="width:100%; margin-top:1rem;">
+                            <i class="fab fa-whatsapp" style="font-size:1.25rem;"></i> Submit Appointment Request
+                        </button>
+                        <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">Not on WhatsApp? Call <a href="tel:+919191919191" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91 9191919191</a> or email <a href="mailto:enquiry@healtouch.com" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">enquiry@healtouch.com</a>.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="js/include.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // We can use the global initWhatsAppForm from include.js, 
+        // but since this form has a specific location field, we'll implement a custom interceptor here for extra details.
+        const form = document.getElementById('mainAppointmentForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const fullName = form.querySelector('#fullName').value;
+                const phone = form.querySelector('#phone').value;
+                const email = form.querySelector('#email').value || 'Not provided';
+                const service = form.querySelector('#serviceSelect').value;
+                const date = form.querySelector('#date').value || 'Flexible';
+                const info = form.querySelector('#info').value || 'None';
+                
+                const msg = `Hello HealthTouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
+                
+                window.open(`https://wa.me/917305274514?text=${msg}`, '_blank');
+            });
+        }
+    });
+</script>
+</body>
+</html>

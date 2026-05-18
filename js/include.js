@@ -1,0 +1,190 @@
+// ============================================
+// GLOBAL JAVASCRIPT FOR HEALTOUCH
+// Handles components, navigation, modals, and forms
+// ============================================
+
+function getBasePath() {
+    const path = window.location.pathname;
+    return path.includes('/services/') ? '../' : './';
+}
+
+async function loadComponent(elementId, filePath) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+        let content = await response.text();
+        const basePath = getBasePath();
+        
+        // Fix asset and link paths
+        content = content.replace(/src="assets\//g, `src="${basePath}assets/`);
+        content = content.replace(/href="assets\//g, `href="${basePath}assets/`);
+        content = content.replace(/url\(['"]?assets\//g, `url(${basePath}assets/`);
+        const links = ['index', 'about', 'contact', 'appointment', 'privacy-policy', 'terms-conditions', 'services/physiotherapy', 'services/rehabilitation', 'services/wellness'];
+        links.forEach(link => {
+            content = content.replace(new RegExp(`href="${link}.html"`, 'g'), `href="${basePath}${link}.html"`);
+        });
+        
+        const el = document.getElementById(elementId);
+        if (el) el.innerHTML = content;
+        return true;
+    } catch (error) {
+        console.error(`Error loading ${filePath}:`, error);
+        return false;
+    }
+}
+
+// Global WhatsApp Form Handler
+function initWhatsAppForm(formId, serviceName = '') {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    
+    // If serviceName is passed, pre-fill it
+    if (serviceName) {
+        const serviceSelect = form.querySelector('#serviceSelect');
+        if (serviceSelect) serviceSelect.value = serviceName;
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fullName = form.querySelector('#fullName')?.value || '';
+        const phone = form.querySelector('#phone')?.value || '';
+        const email = form.querySelector('#email')?.value || '';
+        const service = form.querySelector('#serviceSelect')?.value || serviceName || 'General Inquiry';
+        const date = form.querySelector('#date')?.value || 'Flexible';
+        const info = form.querySelector('#info')?.value || 'None';
+        
+        const msg = `Hello HealthTouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
+        
+        window.open(`https://wa.me/917305274514?text=${msg}`, '_blank');
+    });
+}
+
+// Universal Service Modal Logic
+function openServiceModal(title, description, benefits, imageUrl, detailedContent = '') {
+    let modalOverlay = document.getElementById('global-modal');
+    if (!modalOverlay) {
+        modalOverlay = document.createElement('div');
+        modalOverlay.id = 'global-modal';
+        modalOverlay.className = 'modal-overlay';
+        document.body.appendChild(modalOverlay);
+    }
+    
+    const basePath = getBasePath();
+    const modalHtml = `
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeServiceModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-image-wrapper" style="background:var(--soft-gray);">
+                <img src="${basePath}${imageUrl}" alt="${title}" class="modal-image" onerror="this.src='${basePath}assets/images/logo/logo.png'; this.style.objectFit='contain'; this.style.padding='2rem';">
+            </div>
+            <div class="modal-body">
+                <span class="section-tag">Service Details</span>
+                <h3 style="font-size:2rem; margin-bottom:1rem; color:var(--deep-blue);">${title}</h3>
+                <p style="color:var(--text-light); margin-bottom:1rem;">${description}</p>
+                ${detailedContent ? `<p style="color:var(--text-light); margin-bottom:1.5rem; font-size:0.95rem; line-height:1.7;">${detailedContent}</p>` : ''}
+                
+                <h4 style="margin-bottom:0.5rem;">Benefits:</h4>
+                <ul style="margin-bottom:2rem; color:var(--text-light); padding-left:1.2rem;">
+                    ${benefits.map(b => `<li>${b}</li>`).join('')}
+                </ul>
+                
+                <div class="glass-form" style="padding:1.5rem; background:var(--soft-gray); border:none;">
+                    <h4 style="margin-bottom:1rem;">Book this service</h4>
+                    <form id="modalAppointmentForm">
+                        <div class="form-group"><input type="text" id="fullName" placeholder="Full Name" required></div>
+                        <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" required></div>
+                        <div class="form-group"><input type="email" id="email" placeholder="Email Address (Optional)"></div>
+                        <!-- Location removed -->
+                        <div class="form-group"><input type="date" id="date"></div>
+                        <div class="form-group">
+                            <select id="serviceSelect" required style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif;">
+                                <option value="" disabled>Select a Service</option>
+                                <optgroup label="Physiotherapy">
+                                    <option value="Back Pain Treatment">Back Pain Treatment</option>
+                                    <option value="Neck Pain Physiotherapy">Neck Pain Physiotherapy</option>
+                                    <option value="Shoulder Pain Treatment">Shoulder Pain Treatment</option>
+                                    <option value="Knee Pain Therapy">Knee Pain Therapy</option>
+                                    <option value="Sciatica & Nerve Therapies">Sciatica & Nerve Therapies</option>
+                                    <option value="Chronic Pain Management">Chronic Pain Management</option>
+                                    <option value="Joint Stiffness & Arthritis Care">Joint Stiffness & Arthritis Care</option>
+                                </optgroup>
+                                <optgroup label="Rehabilitation">
+                                    <option value="Post-Operative Rehabilitation">Post-Operative Rehabilitation</option>
+                                    <option value="Sports Injury Recovery">Sports Injury Recovery</option>
+                                    <option value="Neurological Rehabilitation">Neurological Rehabilitation</option>
+                                    <option value="Cardiorespiratory Rehab">Cardiorespiratory Rehab</option>
+                                    <option value="Geriatric & Mobility Training">Geriatric & Mobility Training</option>
+                                    <option value="Pediatric Rehabilitation">Pediatric Rehabilitation</option>
+                                    <option value="Women's Health & Diastasis Recti">Women's Health & Diastasis Recti</option>
+                                </optgroup>
+                                <optgroup label="Wellness">
+                                    <option value="Ergonomic Posture Assessment">Ergonomic Posture Assessment</option>
+                                    <option value="Medical & Sports Massage">Medical & Sports Massage</option>
+                                    <option value="Clinical Pilates & Core Training">Clinical Pilates & Core Training</option>
+                                    <option value="Preventive Strength & Flexibility">Preventive Strength & Flexibility</option>
+                                    <option value="Balance & Fall Prevention">Balance & Fall Prevention</option>
+                                    <option value="Lifestyle & Weight Management Advice">Lifestyle & Weight Management Advice</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group"><textarea id="info" rows="2" placeholder="Additional Information / Symptoms" style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif; resize:vertical;"></textarea></div>
+                        <button type="submit" class="btn-primary" style="width:100%; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Request Appointment</button>
+                        <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">Not on WhatsApp? Call <a href="tel:+919191919191" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91 9191919191</a> or email <a href="mailto:enquiry@healtouch.com" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">enquiry@healtouch.com</a>.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modalOverlay.innerHTML = modalHtml;
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize form inside modal
+    initWhatsAppForm('modalAppointmentForm', title);
+}
+
+function closeServiceModal() {
+    const modalOverlay = document.getElementById('global-modal');
+    if (modalOverlay) {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Bind clicks outside modal to close it
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'global-modal') closeServiceModal();
+});
+
+// Initialize on DOM Load
+document.addEventListener('DOMContentLoaded', async () => {
+    const basePath = getBasePath();
+    
+    await loadComponent('header-container', `${basePath}includes/header.html`);
+    await loadComponent('footer-container', `${basePath}includes/footer.html`);
+    
+    // Mobile Menu
+    setTimeout(() => {
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    }, 100);
+    
+    // Sticky Header Scroll
+    const header = document.querySelector('.sticky-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            if(header) header.classList.add('scrolled');
+        } else {
+            if(header) header.classList.remove('scrolled');
+        }
+    });
+
+    // Initialize any page-level forms
+    initWhatsAppForm('appointmentForm');
+});

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Physiotherapy Services | HealthTouch</title>
+    <meta name="description" content="Premium physiotherapy services in Pondicherry. Expert treatments for back pain, neck pain, sciatica, and joint stiffness.">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <style>
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <section class="page-header animate-fade-in-up">
+        <div class="container">
+            <span class="section-tag">Our Expertise</span>
+            <h1 class="section-title" style="font-size:3.5rem;">Physiotherapy <span class="gradient-text">Services</span></h1>
+            <p class="section-subtitle">Comprehensive, evidence-based physiotherapy treatments tailored to relieve pain, restore mobility, and improve your overall quality of life.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="services-grid" id="fullPhysioGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="../js/include.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const services = [
+            {
+                title: "Back Pain Treatment",
+                desc: "Expert diagnosis and treatment for acute and chronic lower back pain, restoring core stability and spinal health.",
+                detailedContent: "Our comprehensive back pain treatment protocols combine advanced diagnostic assessment with evidence-based interventions. We utilize a mix of manual therapy, spinal mobilization, core stabilization exercises, and ergonomic education to not only treat your current pain but also prevent future occurrences. Whether you suffer from a herniated disc, muscle strain, or degenerative disc disease, our targeted approach ensures optimal recovery.",
+                benefits: ["Rapid pain relief", "Improved spinal mobility", "Core strength building", "Prevention of future episodes"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-procedures"
+            },
+            {
+                title: "Neck Pain Physiotherapy",
+                desc: "Specialized care for cervical spine issues, text neck, and tension headaches using manual therapy and ergonomics.",
+                detailedContent: "Neck pain can severely impact your daily life, causing headaches, stiffness, and radiating pain into the arms. Our neck pain physiotherapy program focuses on relieving muscle tension, correcting cervical posture, and restoring full range of motion. We use precise manual techniques, including trigger point therapy and cervical traction, combined with specific strengthening exercises to alleviate pain caused by poor posture, whiplash, or cervical spondylosis.",
+                benefits: ["Relief from stiffness", "Headache reduction", "Posture correction", "Restored range of motion"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-user-md"
+            },
+            {
+                title: "Shoulder Pain Treatment",
+                desc: "Rehabilitation for rotator cuff injuries, frozen shoulder, and impingement syndromes.",
+                detailedContent: "The shoulder is the most mobile joint in the body, making it highly susceptible to injury. Our specialized shoulder rehab programs are designed to address the root cause of conditions like frozen shoulder (adhesive capsulitis), rotator cuff tears, and bursitis. Through a progressive regimen of mobility exercises, targeted rotator cuff strengthening, and joint mobilization techniques, we aim to restore pain-free overhead movement and full function.",
+                benefits: ["Increased joint mobility", "Strengthened rotator cuff", "Pain-free overhead movements", "Faster return to sports"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-dumbbell"
+            },
+            {
+                title: "Knee Pain Therapy",
+                desc: "Targeted therapy for osteoarthritis, meniscus injuries, and patellofemoral pain syndrome.",
+                detailedContent: "Knee pain can severely limit your mobility and quality of life. Whether you are dealing with early-stage osteoarthritis, recovering from a meniscus tear, or suffering from runner's knee, our evidence-based knee therapy provides structured relief. We focus on reducing inflammation, strengthening the quadriceps, hamstrings, and glutes to provide better support to the knee joint, and correcting biomechanical faults to ensure a safe return to walking, running, or sports.",
+                benefits: ["Reduced joint swelling", "Enhanced joint stability", "Safe return to walking/running", "Delaying need for surgery"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-walking"
+            },
+            {
+                title: "Sciatica & Nerve Therapies",
+                desc: "Advanced neural mobilization techniques to relieve sciatic nerve compression and radiating leg pain.",
+                detailedContent: "Sciatica involves severe, shooting pain that radiates from the lower back down the leg, often accompanied by numbness or tingling. Our nerve therapies specifically target the source of nerve compression. Using advanced neural mobilization (nerve gliding) techniques, lumbar decompression strategies, and specialized stretching, we reduce pressure on the sciatic nerve to alleviate symptoms quickly and effectively.",
+                benefits: ["Alleviation of nerve pain", "Reduction of numbness/tingling", "Improved walking ability", "Spinal decompression"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-bolt"
+            },
+            {
+                title: "Chronic Pain Management",
+                desc: "Holistic, multidisciplinary approaches to manage long-term pain conditions like fibromyalgia.",
+                detailedContent: "Living with chronic pain conditions such as fibromyalgia or complex regional pain syndrome requires a specialized, compassionate approach. Our chronic pain management program integrates gentle graded exercise therapy, cognitive functional therapy, pacing strategies, and relaxation techniques. We work closely with you to improve your pain tolerance, enhance sleep quality, and maximize your ability to perform daily activities without fear of flare-ups.",
+                benefits: ["Improved pain tolerance", "Better sleep quality", "Enhanced daily functioning", "Reduced medication reliance"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-hand-holding-medical"
+            },
+            {
+                title: "Joint Stiffness & Arthritis Care",
+                desc: "Gentle joint mobilization and tailored exercise programs to maintain joint health and flexibility.",
+                detailedContent: "Arthritis and joint stiffness don't have to define your aging process. Our arthritis care programs are designed to keep you moving comfortably. Through gentle joint mobilization, hydrotherapy principles, and highly specific low-impact strengthening exercises, we help lubricate the joints, reduce morning stiffness, and maintain your independence. Our goal is to slow disease progression and provide effective, non-pharmacological pain management.",
+                benefits: ["Decreased morning stiffness", "Maintained independence", "Slowed disease progression", "Pain management"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-bone"
+            }
+        ];
+
+        const grid = document.getElementById('fullPhysioGrid');
+        grid.innerHTML = services.map((s, index) => {
+            const escapedDesc = s.desc.replace(/'/g, "\\'");
+            const escapedDetailed = (s.detailedContent || '').replace(/'/g, "\\'");
+            const benefitsJson = JSON.stringify(s.benefits).replace(/"/g, '&quot;');
+            return `
+            <div class="premium-card service-card animate-fade-in-up" style="animation-delay: ${index * 0.1}s" 
+                 onclick="openServiceModal('${s.title}', '${escapedDesc}', ${benefitsJson}, '${s.img}', '${escapedDetailed}')">
+                <div class="service-icon"><i class="${s.icon}"></i></div>
+                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">${s.title}</h3>
+                <p style="color:var(--text-light); margin-bottom:1.5rem;">${s.desc}</p>
+                <span style="color:var(--primary-green); font-weight:600; display:flex; align-items:center; gap:5px;">Book Treatment <i class="fas fa-arrow-right"></i></span>
+            </div>
+            `;
+        }).join('');
+    });
+</script>
+</body>
+</html>

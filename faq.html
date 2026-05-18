@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Frequently Asked Questions | HealthTouch</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .page-header { padding: 180px 0 100px; background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%); text-align: center; }
+        .faq-item { background: var(--white); border-radius: 20px; margin-bottom: 1rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); }
+        .faq-question { width: 100%; padding: 1.5rem; text-align: left; background: none; border: none; font-weight: 700; font-size: 1.15rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-dark); font-family: 'Poppins', sans-serif; }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-light); }
+        .faq-answer.show { padding: 0 1.5rem 1.5rem; max-height: 500px; }
+    </style>
+</head>
+<body>
+<div id="header-container"></div>
+<main>
+    <section class="page-header animate-fade-in-up">
+        <div class="container">
+            <span class="section-tag">Got Questions?</span>
+            <h1 class="section-title" style="font-size:3.5rem;">Frequently Asked <span class="gradient-text">Questions</span></h1>
+            <p class="section-subtitle">Find answers to common questions about our treatments, booking process, and clinic policies.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div style="max-width:800px; margin:0 auto;" id="fullFaqAccordion"></div>
+        </div>
+    </section>
+</main>
+<div id="footer-container"></div>
+<script src="js/include.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqs = [
+            {q: "How do I book an appointment?", a: "You can book easily by filling out our online form, calling us directly, or clicking the WhatsApp button. We typically confirm slots within an hour during business hours."},
+            {q: "What should I wear to my physiotherapy session?", a: "Please wear comfortable, loose-fitting clothing that allows easy access to the area being treated (e.g., shorts for knee issues, tank tops for shoulder issues)."},
+            {q: "Do you offer home visit physiotherapy?", a: "Yes, we provide specialized home care for patients with severe mobility issues, post-operative constraints, or elderly patients who cannot travel to the clinic."},
+            {q: "How many sessions will I need?", a: "The number of sessions depends on your specific condition and how your body responds to treatment. Your physiotherapist will discuss a personalized treatment plan during your initial assessment."},
+            {q: "Do I need a doctor's referral?", a: "While a doctor's referral is not mandatory to seek physiotherapy treatment, it might be required by your insurance provider if you plan to claim reimbursement."},
+            {q: "What payment methods do you accept?", a: "We accept Cash, UPI, Credit/Debit Cards, and online bank transfers."}
+        ];
+        
+        document.getElementById('fullFaqAccordion').innerHTML = faqs.map((f, i) => `
+            <div class="faq-item animate-fade-in-up" style="animation-delay: ${i*0.1}s">
+                <button class="faq-question">${f.q} <i class="fas fa-plus" style="color:var(--primary-green);"></i></button>
+                <div class="faq-answer"><p style="padding-top:1rem;">${f.a}</p></div>
+            </div>
+        `).join('');
+        
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const ans = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                const isOpen = ans.classList.contains('show');
+                
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
+                document.querySelectorAll('.faq-question i').forEach(i => { i.classList.remove('fa-minus'); i.classList.add('fa-plus'); });
+                
+                if(!isOpen) {
+                    ans.classList.add('show');
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

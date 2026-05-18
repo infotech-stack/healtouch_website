@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Rehabilitation Services | HealthTouch</title>
+    <meta name="description" content="Premium rehabilitation services in Pondicherry. Post-operative care, sports injury recovery, and neurological rehab.">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <style>
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <section class="page-header animate-fade-in-up">
+        <div class="container">
+            <span class="section-tag">Our Expertise</span>
+            <h1 class="section-title" style="font-size:3.5rem;">Rehabilitation <span class="gradient-text">Services</span></h1>
+            <p class="section-subtitle">Structured, progressive rehabilitation programs designed to help you regain optimal function after surgery, injury, or illness.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="services-grid" id="fullRehabGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="../js/include.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const services = [
+            {
+                title: "Post-Operative Rehabilitation",
+                desc: "Specialized care following orthopedic surgeries (joint replacements, ACL reconstruction) to ensure safe and complete recovery.",
+                detailedContent: "Surgery is only the first step in the healing process. Our post-operative rehabilitation program ensures that you regain full function safely and effectively. Whether you've undergone a total knee replacement, ACL reconstruction, spinal fusion, or rotator cuff repair, our physiotherapists guide you through progressive phases of healing. We focus on early mobilization, pain management, scar tissue reduction, and restoring normal biomechanics to get you back to your active life.",
+                benefits: ["Faster surgical recovery", "Restored joint mobility", "Reduced scar tissue", "Safe return to daily activities"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-crutch"
+            },
+            {
+                title: "Sports Injury Recovery",
+                desc: "Targeted rehab for athletes and active individuals recovering from sprains, strains, and tears.",
+                detailedContent: "A sports injury shouldn't sideline you indefinitely. Our sports injury recovery protocols are designed for athletes of all levels. We accurately diagnose the tissue damage—be it a severe ankle sprain, a hamstring tear, or tennis elbow—and build a rigorous, sport-specific rehabilitation timeline. By integrating plyometrics, agility training, and biomechanical video analysis, we don't just heal the injury; we correct the underlying faults to prevent recurrence.",
+                benefits: ["Sports-specific training", "Injury recurrence prevention", "Enhanced athletic performance", "Biomechanics correction"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-running"
+            },
+            {
+                title: "Neurological Rehabilitation",
+                desc: "Therapy for conditions like stroke, Parkinson's, and MS to improve mobility, balance, and independence.",
+                detailedContent: "Neurological conditions require highly specialized, patient-centric care. Our neurological rehabilitation focuses on neuroplasticity—helping the brain and nervous system relearn lost functions. For patients recovering from a stroke or managing conditions like Parkinson's Disease or Multiple Sclerosis, we provide intense gait training, balance re-education, and functional task practice. Our goal is to maximize your independence and safety in your daily environment.",
+                benefits: ["Improved motor control", "Enhanced balance & coordination", "Fall prevention", "Increased independence"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-brain"
+            },
+            {
+                title: "Cardiorespiratory Rehab",
+                desc: "Exercise and breathing programs to improve lung capacity and heart health post-illness or surgery.",
+                detailedContent: "Regaining your stamina after a severe respiratory illness, heart attack, or cardiac surgery is critical. Our cardiorespiratory rehab programs are closely monitored and tailored to your specific cardiovascular capacity. We utilize targeted breathing exercises, airway clearance techniques, and a carefully graded cardiovascular exercise program to help you rebuild your lung capacity, improve oxygen saturation, and fight fatigue safely.",
+                benefits: ["Increased endurance", "Better breathing techniques", "Improved oxygen saturation", "Enhanced energy levels"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-lungs"
+            },
+            {
+                title: "Geriatric & Mobility Training",
+                desc: "Age-specific rehabilitation focusing on maintaining mobility, strength, and preventing age-related decline.",
+                detailedContent: "Aging gracefully means staying active and independent. Our geriatric rehabilitation focuses on the unique physiological changes associated with aging. We address issues like sarcopenia (muscle loss), osteoarthritis, and declining balance. Through gentle resistance training, functional mobility exercises, and home hazard assessments, we significantly reduce the risk of falls and help seniors maintain their confidence and independence.",
+                benefits: ["Improved walking ability", "Fall risk reduction", "Joint preservation", "Enhanced quality of life"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-wheelchair"
+            },
+            {
+                title: "Pediatric Rehabilitation",
+                desc: "Gentle, play-based therapy for children with developmental delays or pediatric injuries.",
+                detailedContent: "Children's bodies are constantly growing and developing, making pediatric rehabilitation uniquely challenging. Our pediatric physiotherapists specialize in treating developmental delays, cerebral palsy, torticollis, and childhood sports injuries. We utilize engaging, play-based therapy techniques that disguise hard work as fun, ensuring your child reaches their developmental milestones and recovers fully in a supportive environment.",
+                benefits: ["Milestone achievement", "Improved motor skills", "Corrected gait patterns", "Fun, engaging sessions"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-child"
+            },
+            {
+                title: "Women's Health & Diastasis Recti",
+                desc: "Specialized care for pre/post-natal women, focusing on pelvic floor health and abdominal separation recovery.",
+                detailedContent: "Women's bodies undergo profound changes during pregnancy and postpartum. Our specialized women's health physiotherapy addresses intimate issues that many women silently endure. We provide evidence-based treatment for pelvic floor dysfunction, incontinence, pelvic organ prolapse, and Diastasis Recti (abdominal separation). Our compassionate care ensures you can return to exercise and daily life with a strong, functional core.",
+                benefits: ["Core restoration", "Pelvic floor strengthening", "Safe return to exercise", "Post-partum pain relief"],
+                img: "assets/images/hero-clinic.jpg",
+                icon: "fas fa-female"
+            }
+        ];
+
+        const grid = document.getElementById('fullRehabGrid');
+        grid.innerHTML = services.map((s, index) => {
+            const escapedDesc = s.desc.replace(/'/g, "\\'");
+            const escapedDetailed = (s.detailedContent || '').replace(/'/g, "\\'");
+            const benefitsJson = JSON.stringify(s.benefits).replace(/"/g, '&quot;');
+            return `
+            <div class="premium-card service-card animate-fade-in-up" style="animation-delay: ${index * 0.1}s" 
+                 onclick="openServiceModal('${s.title}', '${escapedDesc}', ${benefitsJson}, '${s.img}', '${escapedDetailed}')">
+                <div class="service-icon" style="background: linear-gradient(135deg, var(--sky-blue), var(--deep-blue));"><i class="${s.icon}"></i></div>
+                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">${s.title}</h3>
+                <p style="color:var(--text-light); margin-bottom:1.5rem;">${s.desc}</p>
+                <span style="color:var(--primary-green); font-weight:600; display:flex; align-items:center; gap:5px;">Book Rehab <i class="fas fa-arrow-right"></i></span>
+            </div>
+            `;
+        }).join('');
+    });
+</script>
+</body>
+</html>

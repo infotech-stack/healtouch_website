@@ -1,0 +1,11 @@
+# SEO Robots.txt for healtouch Physio & Rehab Centre
+User-agent: *
+Allow: /
+Disallow: /assets/images/temp/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.healtouchphysio.com/sitemap.xml
+
+# Crawl delay to avoid server overload
+Crawl-delay: 1
