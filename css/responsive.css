@@ -79,6 +79,23 @@
         width: 95%;
         padding: 1rem;
     }
+
+    /* Services section header row: stack vertically */
+    .services-section-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem;
+    }
+
+    .services-section-header h3 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Force grids to 1 column on small screens */
+    .features-grid,
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* Small Mobile */

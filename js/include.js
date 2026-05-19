@@ -163,26 +163,76 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadComponent('header-container', `${basePath}includes/header.html`);
     await loadComponent('footer-container', `${basePath}includes/footer.html`);
 
-    // Mobile Menu
+    // ── Active link detection ──────────────────────────────────────
     setTimeout(() => {
-        const mobileMenuBtn = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
+        const path = window.location.pathname;
+
+        // Determine current page key
+        let currentPage = 'index';
+        if (path.includes('about'))          currentPage = 'about';
+        else if (path.includes('contact'))   currentPage = 'contact';
+        else if (path.includes('appointment')) currentPage = 'appointment';
+        else if (path.includes('physiotherapy'))  currentPage = 'physiotherapy';
+        else if (path.includes('rehabilitation')) currentPage = 'rehabilitation';
+        else if (path.includes('wellness'))       currentPage = 'wellness';
+        else if (path.includes('blog'))       currentPage = 'blog';
+        else if (path.includes('faq'))        currentPage = 'faq';
+        else if (path.includes('testimonial')) currentPage = 'testimonials';
+
+        // Apply active class to matching nav-links
+        document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        // ── Mobile Menu (Hamburger) ──────────────────────────────────
+        const mobileMenuBtn  = document.getElementById('mobileMenu');
+        const navMenu        = document.getElementById('navMenu');
+        const navBackdrop    = document.getElementById('navBackdrop');
+
+        function openNav() {
+            navMenu.classList.add('active');
+            mobileMenuBtn.classList.add('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            navBackdrop.classList.add('visible');
+            requestAnimationFrame(() => navBackdrop.classList.add('active'));
+        }
+
+        function closeNav() {
+            navMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            navBackdrop.classList.remove('active');
+            setTimeout(() => navBackdrop.classList.remove('visible'), 300);
+        }
+
         if (mobileMenuBtn && navMenu) {
             mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                navMenu.classList.contains('active') ? closeNav() : openNav();
             });
         }
-    }, 100);
 
-    // Sticky Header Scroll
+        // Close on backdrop click
+        if (navBackdrop) {
+            navBackdrop.addEventListener('click', closeNav);
+        }
+
+        // Close nav when any nav-link is clicked on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) closeNav();
+            });
+        });
+
+    }, 150);
+
+    // ── Sticky Header Scroll ──────────────────────────────────────
     const header = document.querySelector('.sticky-header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            if (header) header.classList.add('scrolled');
-        } else {
-            if (header) header.classList.remove('scrolled');
-        }
+        if (header) header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Initialize any page-level forms

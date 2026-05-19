@@ -1,24 +1,58 @@
-<!-- Header Component - Reusable across all pages -->
-<header class="sticky-header">
+<!-- Header Component - Premium Reusable -->
+<header class="sticky-header" id="siteHeader">
+    <div class="header-top-bar"></div>
     <div class="container">
         <nav class="navbar">
+
+            <!-- Logo -->
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo/logo.png" alt="HealTouch Logo" class="logo-img" onerror="this.src='assets/images/logo.png';">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/logo/logo.png" alt="HealTouch Logo" class="logo-img"
+                        onerror="this.src='assets/images/logo.png';">
                 </a>
             </div>
+
+            <!-- Nav Menu -->
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services/physiotherapy.html">Physiotherapy</a></li>
-                <li><a href="services/rehabilitation.html">Rehabilitation</a></li>
-                <li><a href="services/wellness.html">Wellness</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="appointment.html" class="btn-primary btn-small" id="bookNavBtn">Book Appointment <i class="fas fa-calendar-check"></i></a></li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-page="about">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="services/physiotherapy.html" class="nav-link" data-page="physiotherapy">Physiotherapy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services/rehabilitation.html" class="nav-link" data-page="rehabilitation">Rehabilitation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services/wellness.html" class="nav-link" data-page="wellness">Wellness</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+                </li>
+
+                <!-- CTA Button -->
+                <li class="nav-item nav-cta">
+                    <a href="appointment.html" class="nav-book-btn" id="bookNavBtn">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Appointment
+                    </a>
+                </li>
             </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
+
+            <!-- Mobile Hamburger -->
+            <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-bar bar1"></span>
+                <span class="hamburger-bar bar2"></span>
+                <span class="hamburger-bar bar3"></span>
+            </button>
         </nav>
     </div>
 </header>
+
+<!-- Mobile Backdrop -->
+<div class="nav-backdrop" id="navBackdrop"></div>
