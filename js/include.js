@@ -14,7 +14,7 @@ async function loadComponent(elementId, filePath) {
         if (!response.ok) throw new Error(`Failed to load ${filePath}`);
         let content = await response.text();
         const basePath = getBasePath();
-        
+
         // Fix asset and link paths
         content = content.replace(/src="assets\//g, `src="${basePath}assets/`);
         content = content.replace(/href="assets\//g, `href="${basePath}assets/`);
@@ -23,7 +23,7 @@ async function loadComponent(elementId, filePath) {
         links.forEach(link => {
             content = content.replace(new RegExp(`href="${link}.html"`, 'g'), `href="${basePath}${link}.html"`);
         });
-        
+
         const el = document.getElementById(elementId);
         if (el) el.innerHTML = content;
         return true;
@@ -37,7 +37,7 @@ async function loadComponent(elementId, filePath) {
 function initWhatsAppForm(formId, serviceName = '') {
     const form = document.getElementById(formId);
     if (!form) return;
-    
+
     // If serviceName is passed, pre-fill it
     if (serviceName) {
         const serviceSelect = form.querySelector('#serviceSelect');
@@ -52,10 +52,10 @@ function initWhatsAppForm(formId, serviceName = '') {
         const service = form.querySelector('#serviceSelect')?.value || serviceName || 'General Inquiry';
         const date = form.querySelector('#date')?.value || 'Flexible';
         const info = form.querySelector('#info')?.value || 'None';
-        
+
         const msg = `Hello HealthTouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
-        
-        window.open(`https://wa.me/917305274514?text=${msg}`, '_blank');
+
+        window.open(`https://wa.me/+91 9751633111?text=${msg}`, '_blank');
     });
 }
 
@@ -68,7 +68,7 @@ function openServiceModal(title, description, benefits, imageUrl, detailedConten
         modalOverlay.className = 'modal-overlay';
         document.body.appendChild(modalOverlay);
     }
-    
+
     const basePath = getBasePath();
     const modalHtml = `
         <div class="modal-content">
@@ -128,17 +128,17 @@ function openServiceModal(title, description, benefits, imageUrl, detailedConten
                         </div>
                         <div class="form-group"><textarea id="info" rows="2" placeholder="Additional Information / Symptoms" style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif; resize:vertical;"></textarea></div>
                         <button type="submit" class="btn-primary" style="width:100%; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Request Appointment</button>
-                        <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">Not on WhatsApp? Call <a href="tel:+919191919191" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91 9191919191</a> or email <a href="mailto:enquiry@healtouch.com" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">enquiry@healtouch.com</a>.</p>
+                        <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">Not on WhatsApp? Call <a href="tel:+91 9751633111" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91 9751633111</a> or email <a href="mailto:healtouch5@gmail.com" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">healtouch5@gmail.com</a>.</p>
                     </form>
                 </div>
             </div>
         </div>
     `;
-    
+
     modalOverlay.innerHTML = modalHtml;
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
+
     // Initialize form inside modal
     initWhatsAppForm('modalAppointmentForm', title);
 }
@@ -159,10 +159,10 @@ document.addEventListener('click', (e) => {
 // Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', async () => {
     const basePath = getBasePath();
-    
+
     await loadComponent('header-container', `${basePath}includes/header.html`);
     await loadComponent('footer-container', `${basePath}includes/footer.html`);
-    
+
     // Mobile Menu
     setTimeout(() => {
         const mobileMenuBtn = document.querySelector('.mobile-menu');
@@ -174,14 +174,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     }, 100);
-    
+
     // Sticky Header Scroll
     const header = document.querySelector('.sticky-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            if(header) header.classList.add('scrolled');
+            if (header) header.classList.add('scrolled');
         } else {
-            if(header) header.classList.remove('scrolled');
+            if (header) header.classList.remove('scrolled');
         }
     });
 

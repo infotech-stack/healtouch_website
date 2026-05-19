@@ -1,348 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
+
     <!-- SEO Meta Tags -->
     <title>HealthTouch Physio & Rehab Centre | Premium Physiotherapy & Wellness</title>
-    <meta name="description" content="HealthTouch Physio & Rehab Centre offers premium physiotherapy, rehabilitation, and wellness services in Pondicherry. Move better, recover faster, and live pain-free with expert care.">
-    <meta name="keywords" content="Physiotherapy Clinic, Rehab Centre, Back Pain Treatment, Sports Injury Recovery, Wellness Therapy, Physiotherapist Near Me, Physiotherapy in Pondicherry">
+    <meta name="description"
+        content="HealthTouch Physio & Rehab Centre offers premium physiotherapy, rehabilitation, and wellness services in Pondicherry. Move better, recover faster, and live pain-free with expert care.">
+    <meta name="keywords"
+        content="Physiotherapy Clinic, Rehab Centre, Back Pain Treatment, Sports Injury Recovery, Wellness Therapy, Physiotherapist Near Me, Physiotherapy in Pondicherry">
     <meta name="author" content="HealthTouch Physio & Rehab Centre">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="HealthTouch Physio & Rehab Centre | Premium Care">
-    <meta property="og:description" content="Expert physiotherapy, rehabilitation & wellness care tailored for your lifestyle.">
+    <meta property="og:description"
+        content="Expert physiotherapy, rehabilitation & wellness care tailored for your lifestyle.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/logo/logo.png">
     <meta property="og:url" content="https://www.healtouch.com">
     <meta name="twitter:card" content="summary_large_image">
-    
+
     <link rel="canonical" href="https://www.healtouch.com">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
+
     <style>
         /* Hero Section Styling */
-        .hero { 
-            padding: 160px 0 100px; 
-            background: var(--bg-gradient); 
-            position: relative; 
-            overflow: hidden; 
+        .hero {
+            padding: 160px 0 100px;
+            background: var(--bg-gradient);
+            position: relative;
+            overflow: hidden;
         }
+
         .hero::before {
-            content: ''; position: absolute; top: -50%; right: -20%;
-            width: 800px; height: 800px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(11, 138, 47, 0.05) 0%, rgba(255,255,255,0) 70%);
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(11, 138, 47, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
             z-index: 0;
         }
-        .hero-grid { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; 
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
-        .hero-badge { 
-            display: inline-flex; align-items: center; gap: 8px; padding: 0.5rem 1.25rem; 
-            background: rgba(11, 138, 47, 0.1); border-radius: 50px; 
-            color: var(--primary-green); font-weight: 600; font-family: 'Poppins', sans-serif; margin-bottom: 1.5rem; 
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.25rem;
+            background: rgba(11, 138, 47, 0.1);
+            border-radius: 50px;
+            color: var(--primary-green);
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1.5rem;
         }
-        .hero-title { 
-            font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--deep-blue); letter-spacing: -0.03em; 
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--deep-blue);
+            letter-spacing: -0.03em;
         }
-        .hero-subtitle { 
-            font-size: 1.25rem; color: var(--text-light); margin-bottom: 2.5rem; line-height: 1.8; 
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
         }
-        .hero-buttons { 
-            display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; 
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
-        .trust-badges { 
-            display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--gray-200); 
+
+        .trust-badges {
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
         }
-        .stat-item h3 { font-size: 2rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 0.25rem; }
-        .stat-item p { color: var(--text-light); font-size: 0.95rem; font-weight: 500; }
-        .hero-image { 
-            position: relative; 
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: float-hero 6s ease-in-out infinite;
         }
+
         .hero-image::before {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(11, 138, 47, 0.12) 0%, rgba(123, 203, 19, 0.04) 50%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(11, 138, 47, 0.12) 0%, rgba(123, 203, 19, 0.04) 50%, rgba(255, 255, 255, 0) 70%);
             z-index: 0;
             animation: pulse-ring 4s ease-in-out infinite;
         }
-        .hero-image img { 
-            width: 100%; 
-            max-width: 540px;
-            border-radius: 50%; 
-            box-shadow: 0 20px 50px rgba(11, 138, 47, 0.15); 
+
+        .hero-swiper {
+            width: 100%;
+            max-width: 650px;
+            padding: 20px 20px 40px;
+            margin: -20px -20px -40px;
             z-index: 1;
-            transition: var(--transition); 
-            animation: float-hero 6s ease-in-out infinite;
+        }
+
+        .hero-swiper img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 20px 50px rgba(11, 138, 47, 0.15);
+            transition: var(--transition);
             border: 4px solid var(--white);
         }
-        .hero-image:hover img { 
-            transform: scale(1.03) translateY(-5px); 
+
+        .hero-swiper img:hover {
+            transform: scale(1.03);
             box-shadow: 0 30px 60px rgba(11, 138, 47, 0.25);
         }
+
+        .hero-swiper-pagination {
+            bottom: 5px !important;
+        }
+
+        .hero-swiper-pagination .swiper-pagination-bullet {
+            background: var(--gray-300);
+            opacity: 0.6;
+            width: 8px;
+            height: 8px;
+            transition: var(--transition-fast);
+        }
+
+        .hero-swiper-pagination .swiper-pagination-bullet-active {
+            background: var(--primary-green) !important;
+            opacity: 1;
+            width: 20px;
+            border-radius: 4px;
+        }
+
         @keyframes float-hero {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
+
         @keyframes pulse-ring {
-            0%, 100% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.08); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
         }
-        
+
         /* Grids */
-        .features-grid, .services-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin: 3rem 0; 
+        .features-grid,
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-        
-        .feature-icon, .service-icon { 
-            width: 70px; height: 70px; 
-            background: linear-gradient(135deg, var(--light-green), var(--primary-green)); 
-            border-radius: 20px; display: flex; align-items: center; justify-content: center; 
-            margin-bottom: 1.5rem; font-size: 2rem; color: white; box-shadow: var(--shadow-md); 
+
+        .feature-icon,
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--light-green), var(--primary-green));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow-md);
         }
-        
+
         /* CTA Banner */
-        .cta-banner { 
-            background: linear-gradient(135deg, var(--deep-blue), #0f3a73); 
-            padding: 100px 0; text-align: center; color: white; border-radius: 40px; margin: 40px 24px; box-shadow: var(--shadow-xl); 
+        .cta-banner {
+            background: linear-gradient(135deg, var(--deep-blue), #0f3a73);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            border-radius: 40px;
+            margin: 40px 24px;
+            box-shadow: var(--shadow-xl);
         }
-        .cta-banner h2 { color: white; font-size: 3rem; margin-bottom: 1.5rem; }
-        .cta-banner p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
-        
+
+        .cta-banner h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
         /* FAQ & Contact */
-        .faq-item { 
-            background: var(--white); border-radius: 20px; margin-bottom: 1rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); 
+        .faq-item {
+            background: var(--white);
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
         }
-        .faq-question { 
-            width: 100%; padding: 1.5rem; text-align: left; background: none; border: none; font-weight: 700; font-size: 1.15rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-dark); font-family: 'Poppins', sans-serif;
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            text-align: left;
+            background: none;
+            border: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
         }
-        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-light); }
-        .faq-answer.show { padding: 0 1.5rem 1.5rem; max-height: 500px; }
-        
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .map-container iframe { border-radius: 24px; box-shadow: var(--shadow-md); }
-        
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            color: var(--text-light);
+        }
+
+        .faq-answer.show {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .map-container iframe {
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+        }
+
         /* Testimonials */
-        .testimonial-card { padding: 3rem; background: var(--white); border-radius: 32px; border: 1px solid var(--gray-100); box-shadow: var(--shadow-md); margin: 20px; }
-        .testimonial-text { font-size: 1.125rem; font-style: italic; color: var(--text-light); margin-bottom: 2rem; line-height: 1.8; }
-        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-        .author-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--light-green), var(--primary-green)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; }
-        
+        .testimonial-card {
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 32px;
+            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-md);
+            margin: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-green), var(--primary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
         @media (max-width: 992px) {
-            .hero-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-title { font-size: 3rem; }
-            .hero-buttons { justify-content: center; }
-            .trust-badges { justify-content: center; }
+
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .trust-badges {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<!-- Global Header -->
-<div id="header-container"></div>
+    <!-- Global Header -->
+    <div id="header-container"></div>
 
-<main>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content animate-fade-in-up">
-                    <span class="hero-badge"><i class="fas fa-heartbeat"></i> Premium Healthcare</span>
-                    <h1 class="hero-title">Move Better.<br>Recover Faster.<br><span class="gradient-text">Live Pain Free.</span></h1>
-                    <p class="hero-subtitle">Expert Physiotherapy, Rehabilitation & Wellness Care Tailored For Your Lifestyle. Regain your strength and vitality with our holistic approach to healing.</p>
-                    <div class="hero-buttons">
-                        <a href="appointment.html" class="btn-primary btn-large">Book Appointment <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/917305274514?text=Hello%20HealthTouch,%20I%20want%20to%20book%20an%20appointment." class="btn-outline btn-large" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
-                    </div>
-                    <div class="trust-badges">
-                        <div class="stat-item">
-                            <h3><span class="counter" data-target="10">0</span>+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3><span class="counter" data-target="5000">0</span>+</h3>
-                            <p>Happy Patients</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 style="color:#fbbf24;"><i class="fas fa-star"></i> 4.9</h3>
-                            <p>Google Rating</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image animate-fade-in-left">
-                    <img src="assets/images/hero/hero-Physiotherapy.png" alt="HealthTouch Physiotherapy Expert Care" onerror="this.src='https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80';">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container text-center">
-            <span class="section-tag">About HealthTouch</span>
-            <h2 class="section-title">Where Healing Meets <span class="gradient-text">Excellence</span></h2>
-            <p class="section-subtitle">At HealthTouch Physio & Rehab Centre, we blend advanced clinical techniques with compassionate, patient-centered care. Our expert team is dedicated to restoring your movement, alleviating pain, and enhancing your overall quality of life.</p>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section style="background:var(--soft-gray);">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-tag">Why Choose Us</span>
-                <h2 class="section-title">Exceptional Care, <span class="gradient-text">Real Results</span></h2>
-            </div>
-            <div class="features-grid" id="featuresGrid">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Overview -->
-    <section id="services">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-tag">Our Expertise</span>
-                <h2 class="section-title">Comprehensive <span class="gradient-text">Treatments</span></h2>
-                <p class="section-subtitle">We offer specialized treatments across three main pillars of health.</p>
-            </div>
-            
-            <div style="margin-top: 4rem;">
-                <!-- Physio Preview -->
-                <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; border-bottom:2px solid var(--gray-100); padding-bottom:1rem;">
-                    <h3 style="font-size:2rem; color:var(--deep-blue);">Physiotherapy Services</h3>
-                    <a href="services/physiotherapy.html" class="btn-outline">View All</a>
-                </div>
-                <div class="services-grid" id="homePhysioGrid"></div>
-
-                <!-- Rehab Preview -->
-                <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; border-bottom:2px solid var(--gray-100); padding-bottom:1rem; margin-top:4rem;">
-                    <h3 style="font-size:2rem; color:var(--deep-blue);">Rehabilitation Services</h3>
-                    <a href="services/rehabilitation.html" class="btn-outline">View All</a>
-                </div>
-                <div class="services-grid" id="homeRehabGrid"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section style="padding:0;">
-        <div class="cta-banner">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h2>Ready to Start Your Recovery Journey?</h2>
-                <p>Book your appointment today and take the first step towards pain-free living with our expert therapists.</p>
-                <a href="appointment.html" class="btn-primary btn-large" style="background:var(--white); color:var(--deep-blue) !important; font-size:1.2rem;">Book Appointment Now <i class="fas fa-calendar-alt"></i></a>
+                <div class="hero-grid">
+                    <div class="hero-content animate-fade-in-up">
+                        <span class="hero-badge"><i class="fas fa-heartbeat"></i> Premium Healthcare</span>
+                        <h1 class="hero-title">Move Better.<br>Recover Faster.<br><span class="gradient-text">Live Pain
+                                Free.</span></h1>
+                        <p class="hero-subtitle">Expert Physiotherapy, Rehabilitation & Wellness Care Tailored For Your
+                            Lifestyle. Regain your strength and vitality with our holistic approach to healing.</p>
+                        <div class="hero-buttons">
+                            <a href="appointment.html" class="btn-primary btn-large">Book Appointment <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/+91 9751633111?text=Hello%20HealthTouch,%20I%20want%20to%20book%20an%20appointment."
+                                class="btn-outline btn-large" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp
+                                Now</a>
+                        </div>
+                        <div class="trust-badges">
+                            <div class="stat-item">
+                                <h3><span class="counter" data-target="10">0</span>+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3><span class="counter" data-target="5000">0</span>+</h3>
+                                <p>Happy Patients</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 style="color:#fbbf24;"><i class="fas fa-star"></i> 4.9</h3>
+                                <p>Google Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image animate-fade-in-left">
+                        <!-- Swiper Hero Slider -->
+                        <div class="swiper hero-swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1: Physiotherapy -->
+                                <div class="swiper-slide"
+                                    style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="assets/images/hero/hero-Physiotherapy.png"
+                                        alt="HealthTouch Physiotherapy Expert Care"
+                                        onerror="this.src='https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80';">
+                                </div>
+                                <!-- Slide 2: Rehabilitation -->
+                                <div class="swiper-slide"
+                                    style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="assets/images/hero/hero-rehabilitation.png"
+                                        alt="HealthTouch Rehabilitation Expert Care"
+                                        onerror="this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901d?auto=format&fit=crop&w=800&q=80';">
+                                </div>
+                                <!-- Slide 3: Wellness Care -->
+                                <div class="swiper-slide"
+                                    style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="assets/images/hero/hero-wellnesscare.png"
+                                        alt="HealthTouch Wellness & Prevention Care"
+                                        onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80';">
+                                </div>
+                            </div>
+                            <!-- Pill Pagination Indicators -->
+                            <div class="swiper-pagination hero-swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Slider -->
-    <section>
-        <div class="container">
-            <div class="text-center">
-                <span class="section-tag">Patient Stories</span>
-                <h2 class="section-title">What Our <span class="gradient-text">Patients Say</span></h2>
+        <!-- About Section -->
+        <section id="about">
+            <div class="container text-center">
+                <span class="section-tag">About HealthTouch</span>
+                <h2 class="section-title">Where Healing Meets <span class="gradient-text">Excellence</span></h2>
+                <p class="section-subtitle">At HealthTouch Physio & Rehab Centre, we blend advanced clinical techniques
+                    with compassionate, patient-centered care. Our expert team is dedicated to restoring your movement,
+                    alleviating pain, and enhancing your overall quality of life.</p>
             </div>
-            <div class="swiper testimonials-swiper" style="padding: 2rem 0 4rem;">
-                <div class="swiper-wrapper" id="testimonialsSlider">
+        </section>
+
+        <!-- Why Choose Us -->
+        <section style="background:var(--soft-gray);">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">Exceptional Care, <span class="gradient-text">Real Results</span></h2>
+                </div>
+                <div class="features-grid" id="featuresGrid">
                     <!-- Populated by JS -->
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ Section -->
-    <section style="background:var(--soft-gray);">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-tag">FAQs</span>
-                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
-            </div>
-            <div style="max-width:800px; margin:3rem auto 0;" id="faqAccordion">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="glass-form">
-                    <span class="section-tag">Get in Touch</span>
-                    <h2 class="section-title">Schedule Your <span class="gradient-text">Visit</span></h2>
-                    <p style="margin-bottom:2rem; color:var(--text-light);">Fill out the form below to request an appointment via WhatsApp.</p>
-                    <form id="homeAppointmentForm">
-                        <div class="form-group"><input type="text" id="fullName" placeholder="Full Name" required></div>
-                        <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" required></div>
-                        <div class="form-group">
-                            <select id="serviceSelect" required>
-                                <option value="" disabled selected>Select a Service</option>
-                                <option value="Physiotherapy">Physiotherapy</option>
-                                <option value="Rehabilitation">Rehabilitation</option>
-                                <option value="Wellness">Wellness Therapy</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width:100%;"><i class="fab fa-whatsapp"></i> Request Appointment</button>
-                        <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">Not on WhatsApp? Call <a href="tel:+919191919191" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91 9191919191</a> or email <a href="mailto:enquiry@healtouch.com" style="color:var(--deep-blue); font-weight:600; text-decoration:none;">enquiry@healtouch.com</a>.</p>
-                    </form>
+        <!-- Services Overview -->
+        <section id="services">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-tag">Our Expertise</span>
+                    <h2 class="section-title">Comprehensive <span class="gradient-text">Treatments</span></h2>
+                    <p class="section-subtitle">We offer specialized treatments across three main pillars of health.</p>
                 </div>
-                <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=Pondicherry&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <div style="margin-top: 4rem;">
+                    <!-- Physio Preview -->
+                    <div
+                        style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; border-bottom:2px solid var(--gray-100); padding-bottom:1rem;">
+                        <h3 style="font-size:2rem; color:var(--deep-blue);">Physiotherapy Services</h3>
+                        <a href="services/physiotherapy.html" class="btn-outline">View All</a>
+                    </div>
+                    <div class="services-grid" id="homePhysioGrid"></div>
+
+                    <!-- Rehab Preview -->
+                    <div
+                        style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; border-bottom:2px solid var(--gray-100); padding-bottom:1rem; margin-top:4rem;">
+                        <h3 style="font-size:2rem; color:var(--deep-blue);">Rehabilitation Services</h3>
+                        <a href="services/rehabilitation.html" class="btn-outline">View All</a>
+                    </div>
+                    <div class="services-grid" id="homeRehabGrid"></div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<!-- Global Footer -->
-<div id="footer-container"></div>
+        <!-- CTA Banner -->
+        <section style="padding:0;">
+            <div class="cta-banner">
+                <div class="container">
+                    <h2>Ready to Start Your Recovery Journey?</h2>
+                    <p>Book your appointment today and take the first step towards pain-free living with our expert
+                        therapists.</p>
+                    <a href="appointment.html" class="btn-primary btn-large"
+                        style="background:var(--white); color:var(--deep-blue) !important; font-size:1.2rem;">Book
+                        Appointment Now <i class="fas fa-calendar-alt"></i></a>
+                </div>
+            </div>
+        </section>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/include.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const animateCounters = () => counters.forEach(c => { 
-            let target = +c.dataset.target, current = 0; 
-            const update = () => { 
-                current += Math.ceil(target/50); 
-                if(current<target){ c.innerText=current; requestAnimationFrame(update); } 
-                else c.innerText=target; 
-            }; 
-            update(); 
-        });
-        setTimeout(animateCounters, 800);
+        <!-- Testimonials Slider -->
+        <section>
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-tag">Patient Stories</span>
+                    <h2 class="section-title">What Our <span class="gradient-text">Patients Say</span></h2>
+                </div>
+                <div class="swiper testimonials-swiper" style="padding: 2rem 0 4rem;">
+                    <div class="swiper-wrapper" id="testimonialsSlider">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
 
-        // Features Grid
-        const features = [
-            {icon: 'fas fa-user-md', title: 'Certified Therapists', desc: 'Highly qualified and experienced medical professionals.'},
-            {icon: 'fas fa-hands-helping', title: 'Personalized Care', desc: 'Treatment plans customized to your unique needs.'},
-            {icon: 'fas fa-microscope', title: 'Advanced Techniques', desc: 'Utilizing the latest evidence-based treatments.'},
-            {icon: 'fas fa-heartbeat', title: 'Modern Equipment', desc: 'State-of-the-art facilities for optimal recovery.'},
-            {icon: 'fas fa-leaf', title: 'Holistic Approach', desc: 'Treating the root cause, not just the symptoms.'},
-            {icon: 'fas fa-spa', title: 'Premium Environment', desc: 'A calming clinic designed for your comfort and healing.'}
-        ];
-        document.getElementById('featuresGrid').innerHTML = features.map(f => `
+        <!-- FAQ Section -->
+        <section style="background:var(--soft-gray);">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-tag">FAQs</span>
+                    <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                </div>
+                <div style="max-width:800px; margin:3rem auto 0;" id="faqAccordion">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="glass-form">
+                        <span class="section-tag">Get in Touch</span>
+                        <h2 class="section-title">Schedule Your <span class="gradient-text">Visit</span></h2>
+                        <p style="margin-bottom:2rem; color:var(--text-light);">Fill out the form below to request an
+                            appointment via WhatsApp.</p>
+                        <form id="homeAppointmentForm">
+                            <div class="form-group"><input type="text" id="fullName" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="serviceSelect" required>
+                                    <option value="" disabled selected>Select a Service</option>
+                                    <option value="Physiotherapy">Physiotherapy</option>
+                                    <option value="Rehabilitation">Rehabilitation</option>
+                                    <option value="Wellness">Wellness Therapy</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width:100%;"><i
+                                    class="fab fa-whatsapp"></i> Request Appointment</button>
+                            <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:1rem;">
+                                Not on WhatsApp? Call <a href="tel:+91 9751633111"
+                                    style="color:var(--deep-blue); font-weight:600; text-decoration:none;">+91
+                                    9751633111</a> or email <a href="mailto:healtouch5@gmail.com"
+                                    style="color:var(--deep-blue); font-weight:600; text-decoration:none;">healtouch5@gmail.com</a>.
+                            </p>
+                        </form>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=Pondicherry&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/include.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            const animateCounters = () => counters.forEach(c => {
+                let target = +c.dataset.target, current = 0;
+                const update = () => {
+                    current += Math.ceil(target / 50);
+                    if (current < target) { c.innerText = current; requestAnimationFrame(update); }
+                    else c.innerText = target;
+                };
+                update();
+            });
+            setTimeout(animateCounters, 800);
+
+            // Features Grid
+            const features = [
+                { icon: 'fas fa-user-md', title: 'Certified Therapists', desc: 'Highly qualified and experienced medical professionals.' },
+                { icon: 'fas fa-hands-helping', title: 'Personalized Care', desc: 'Treatment plans customized to your unique needs.' },
+                { icon: 'fas fa-microscope', title: 'Advanced Techniques', desc: 'Utilizing the latest evidence-based treatments.' },
+                { icon: 'fas fa-heartbeat', title: 'Modern Equipment', desc: 'State-of-the-art facilities for optimal recovery.' },
+                { icon: 'fas fa-leaf', title: 'Holistic Approach', desc: 'Treating the root cause, not just the symptoms.' },
+                { icon: 'fas fa-spa', title: 'Premium Environment', desc: 'A calming clinic designed for your comfort and healing.' }
+            ];
+            document.getElementById('featuresGrid').innerHTML = features.map(f => `
             <div class="premium-card text-center">
                 <div class="feature-icon" style="margin: 0 auto 1.5rem;"><i class="${f.icon}"></i></div>
                 <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">${f.title}</h3>
@@ -350,20 +613,20 @@
             </div>
         `).join('');
 
-        // Service Previews
-        const physioPrev = [
-            {title: "Back Pain Treatment", icon: "fas fa-procedures"}, 
-            {title: "Neck Pain Physiotherapy", icon: "fas fa-user-md"}, 
-            {title: "Shoulder Pain Treatment", icon: "fas fa-dumbbell"}
-        ];
-        const rehabPrev = [
-            {title: "Post-Operative Rehabilitation", icon: "fas fa-crutch"}, 
-            {title: "Sports Injury Recovery", icon: "fas fa-running"}, 
-            {title: "Neurological Rehabilitation", icon: "fas fa-brain"}
-        ];
-        
-        const renderPreview = (id, items) => {
-            document.getElementById(id).innerHTML = items.map(item => `
+            // Service Previews
+            const physioPrev = [
+                { title: "Back Pain Treatment", icon: "fas fa-procedures" },
+                { title: "Neck Pain Physiotherapy", icon: "fas fa-user-md" },
+                { title: "Shoulder Pain Treatment", icon: "fas fa-dumbbell" }
+            ];
+            const rehabPrev = [
+                { title: "Post-Operative Rehabilitation", icon: "fas fa-crutch" },
+                { title: "Sports Injury Recovery", icon: "fas fa-running" },
+                { title: "Neurological Rehabilitation", icon: "fas fa-brain" }
+            ];
+
+            const renderPreview = (id, items) => {
+                document.getElementById(id).innerHTML = items.map(item => `
                 <div class="premium-card">
                     <div class="service-icon"><i class="${item.icon}"></i></div>
                     <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">${item.title}</h3>
@@ -371,17 +634,17 @@
                     <a href="services/${id.includes('Physio') ? 'physiotherapy' : 'rehabilitation'}.html" style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
             `).join('');
-        };
-        renderPreview('homePhysioGrid', physioPrev);
-        renderPreview('homeRehabGrid', rehabPrev);
+            };
+            renderPreview('homePhysioGrid', physioPrev);
+            renderPreview('homeRehabGrid', rehabPrev);
 
-        // Testimonials
-        const testimonials = [
-            { name: "Rajesh K.", text: "After months of back pain, I found absolute relief here. The personalized care is unmatched.", init: "RK" },
-            { name: "Priya S.", text: "Excellent post-surgery rehab. The therapists are compassionate and the facility is premium.", init: "PS" },
-            { name: "Anand V.", text: "Recovered from a sports injury in half the expected time. Highly recommend HealthTouch!", init: "AV" }
-        ];
-        document.getElementById('testimonialsSlider').innerHTML = testimonials.map(t => `
+            // Testimonials
+            const testimonials = [
+                { name: "Rajesh K.", text: "After months of back pain, I found absolute relief here. The personalized care is unmatched.", init: "RK" },
+                { name: "Priya S.", text: "Excellent post-surgery rehab. The therapists are compassionate and the facility is premium.", init: "PS" },
+                { name: "Anand V.", text: "Recovered from a sports injury in half the expected time. Highly recommend HealthTouch!", init: "AV" }
+            ];
+            document.getElementById('testimonialsSlider').innerHTML = testimonials.map(t => `
             <div class="swiper-slide">
                 <div class="testimonial-card">
                     <div style="color:#fbbf24; font-size:1.25rem; margin-bottom:1.5rem;">
@@ -398,46 +661,64 @@
                 </div>
             </div>
         `).join('');
-        
-        new Swiper('.testimonials-swiper', {
-            slidesPerView: 1, spaceBetween: 20, loop: true, autoplay: { delay: 5000 },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-        });
 
-        // FAQ
-        const faqs = [
-            {q: "How do I book an appointment?", a: "You can book easily by filling out our online form or clicking the WhatsApp button. We typically confirm slots within an hour."},
-            {q: "What should I wear to my session?", a: "Please wear comfortable, loose-fitting clothing that allows easy access to the area being treated."},
-            {q: "Do you offer home visits?", a: "Yes, we provide specialized home care for patients with severe mobility issues or post-operative constraints."}
-        ];
-        document.getElementById('faqAccordion').innerHTML = faqs.map(f => `
+            new Swiper('.testimonials-swiper', {
+                slidesPerView: 1, spaceBetween: 20, loop: true, autoplay: { delay: 5000 },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            });
+
+            // Initialize Hero Image Swiper Slider
+            new Swiper('.hero-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                effect: 'fade',
+                fadeEffect: { crossFade: true },
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.hero-swiper-pagination',
+                    clickable: true
+                }
+            });
+
+            // FAQ
+            const faqs = [
+                { q: "How do I book an appointment?", a: "You can book easily by filling out our online form or clicking the WhatsApp button. We typically confirm slots within an hour." },
+                { q: "What should I wear to my session?", a: "Please wear comfortable, loose-fitting clothing that allows easy access to the area being treated." },
+                { q: "Do you offer home visits?", a: "Yes, we provide specialized home care for patients with severe mobility issues or post-operative constraints." }
+            ];
+            document.getElementById('faqAccordion').innerHTML = faqs.map(f => `
             <div class="faq-item">
                 <button class="faq-question">${f.q} <i class="fas fa-plus" style="color:var(--primary-green);"></i></button>
                 <div class="faq-answer"><p style="padding-top:1rem;">${f.a}</p></div>
             </div>
         `).join('');
-        
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const ans = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
-                const isOpen = ans.classList.contains('show');
-                
-                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
-                document.querySelectorAll('.faq-question i').forEach(i => { i.classList.remove('fa-minus'); i.classList.add('fa-plus'); });
-                
-                if(!isOpen) {
-                    ans.classList.add('show');
-                    icon.classList.remove('fa-plus');
-                    icon.classList.add('fa-minus');
-                }
-            });
-        });
 
-        // Init Form
-        initWhatsAppForm('homeAppointmentForm');
-    });
-</script>
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const ans = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    const isOpen = ans.classList.contains('show');
+
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
+                    document.querySelectorAll('.faq-question i').forEach(i => { i.classList.remove('fa-minus'); i.classList.add('fa-plus'); });
+
+                    if (!isOpen) {
+                        ans.classList.add('show');
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
+            });
+
+            // Init Form
+            initWhatsAppForm('homeAppointmentForm');
+        });
+    </script>
 </body>
+
 </html>

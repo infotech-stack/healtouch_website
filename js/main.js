@@ -19,7 +19,7 @@ if (mobileMenuBtn && navMenu) {
         // Prevent body scroll when menu is open
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-    
+
     // Close menu when clicking a link
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
@@ -52,7 +52,7 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (header) {
         if (currentScroll > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -62,7 +62,7 @@ window.addEventListener('scroll', () => {
             header.style.boxShadow = 'var(--shadow-sm)';
         }
     }
-    
+
     // Hide/show header on scroll (optional: hide on scroll down, show on scroll up)
     if (currentScroll > lastScroll && currentScroll > 300) {
         // Scrolling down
@@ -77,11 +77,11 @@ window.addEventListener('scroll', () => {
 // ========== FAQ ACCORDION ==========
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
-        
+
         if (question && answer) {
             question.addEventListener('click', () => {
                 // Close other open FAQs
@@ -93,7 +93,7 @@ function initFaqAccordion() {
                         if (otherQuestion) otherQuestion.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle current FAQ
                 answer.classList.toggle('show');
                 question.classList.toggle('active');
@@ -107,10 +107,10 @@ document.addEventListener('DOMContentLoaded', initFaqAccordion);
 
 // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             e.preventDefault();
@@ -118,7 +118,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
-            
+
             // Update URL without jumping
             history.pushState(null, null, targetId);
         }
@@ -128,7 +128,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ========== SCROLL REVEAL ANIMATIONS ==========
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.feature-card, .service-card, .blog-card, .about-content, .hero-content');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -137,7 +137,7 @@ function initScrollReveal() {
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
+
     revealElements.forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
@@ -183,7 +183,7 @@ const reviewSchema = {
         "addressRegion": "Tamil Nadu",
         "addressCountry": "IN"
     },
-    "telephone": "+917305274514",
+    "telephone": "+91 9751633111",
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",

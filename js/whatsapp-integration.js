@@ -4,7 +4,7 @@
 // ============================================
 
 class WhatsAppBooking {
-    constructor(phoneNumber = '917305274514') {
+    constructor(phoneNumber = '+91 9751633111') {
         this.phoneNumber = phoneNumber;
     }
 
@@ -57,8 +57,8 @@ class WhatsAppBooking {
 
 📌 *Quick Reply Options:*
 ✅ Confirm | ⏰ Reschedule | ❌ Cancel
-📞 Call: +91 9191919191
-💬 WhatsApp: +91 9191919191`;
+📞 Call: +91 9751633111
+💬 WhatsApp: +91 9751633111`;
 
         return message;
     }
@@ -124,4 +124,4 @@ class WhatsAppBooking {
 }
 
 // Initialize
-const whatsappBooking = new WhatsAppBooking('917305274514');
+const whatsappBooking = new WhatsAppBooking('+91 9751633111');
