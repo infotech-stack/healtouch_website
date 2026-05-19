@@ -1,70 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Health Tips & Blog | HealthTouch</title>
+    <title>Health Tips & Blog | healtouch</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <style>
-        .page-header { padding: 180px 0 100px; background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%); text-align: center; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
-        .blog-image { height: 250px; background: var(--gray-200); border-radius: 24px 24px 0 0; overflow: hidden; }
-        .blog-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .premium-card:hover .blog-image img { transform: scale(1.05); }
-        .blog-content { padding: 2rem; }
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .blog-image {
+            height: 250px;
+            background: var(--gray-200);
+            border-radius: 24px 24px 0 0;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .premium-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
     </style>
 </head>
+
 <body>
-<div id="header-container"></div>
-<main>
-    <section class="page-header animate-fade-in-up">
-        <div class="container">
-            <span class="section-tag">Read & Learn</span>
-            <h1 class="section-title" style="font-size:3.5rem;">Health & <span class="gradient-text">Wellness Tips</span></h1>
-            <p class="section-subtitle">Discover expert advice, exercises, and insights to help you maintain a healthy, active lifestyle.</p>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="blog-grid" id="blogGrid">
-                <!-- Blog cards -->
-                <div class="premium-card animate-fade-in-up" style="padding:0;">
-                    <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 1"></div>
-                    <div class="blog-content">
-                        <span class="section-tag" style="margin-bottom:1rem; font-size:0.75rem;">Physiotherapy</span>
-                        <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">5 Simple Exercises to Relieve Lower Back Pain</h3>
-                        <p style="color:var(--text-light); margin-bottom:1.5rem;">Discover easy-to-do exercises at home that can significantly reduce lower back tension...</p>
-                        <a href="#" style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read More <i class="fas fa-arrow-right"></i></a>
+    <div id="header-container"></div>
+    <main>
+        <section class="page-header animate-fade-in-up">
+            <div class="container">
+                <span class="section-tag">Read & Learn</span>
+                <h1 class="section-title" style="font-size:3.5rem;">Health & <span class="gradient-text">Wellness
+                        Tips</span></h1>
+                <p class="section-subtitle">Discover expert advice, exercises, and insights to help you maintain a
+                    healthy, active lifestyle.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Blog cards -->
+                    <div class="premium-card animate-fade-in-up" style="padding:0;">
+                        <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 1"></div>
+                        <div class="blog-content">
+                            <span class="section-tag"
+                                style="margin-bottom:1rem; font-size:0.75rem;">Physiotherapy</span>
+                            <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">5 Simple Exercises
+                                to Relieve Lower Back Pain</h3>
+                            <p style="color:var(--text-light); margin-bottom:1.5rem;">Discover easy-to-do exercises at
+                                home that can significantly reduce lower back tension...</p>
+                            <a href="#"
+                                style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="premium-card animate-fade-in-up" style="padding:0; animation-delay:0.2s;">
-                    <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 2"></div>
-                    <div class="blog-content">
-                        <span class="section-tag" style="margin-bottom:1rem; font-size:0.75rem;">Wellness</span>
-                        <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">The Importance of Ergonomics in a WFH Setup</h3>
-                        <p style="color:var(--text-light); margin-bottom:1.5rem;">Working from home? Learn how to set up your desk to prevent neck and shoulder strain...</p>
-                        <a href="#" style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read More <i class="fas fa-arrow-right"></i></a>
+
+                    <div class="premium-card animate-fade-in-up" style="padding:0; animation-delay:0.2s;">
+                        <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 2"></div>
+                        <div class="blog-content">
+                            <span class="section-tag" style="margin-bottom:1rem; font-size:0.75rem;">Wellness</span>
+                            <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">The Importance of
+                                Ergonomics in a WFH Setup</h3>
+                            <p style="color:var(--text-light); margin-bottom:1.5rem;">Working from home? Learn how to
+                                set up your desk to prevent neck and shoulder strain...</p>
+                            <a href="#"
+                                style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="premium-card animate-fade-in-up" style="padding:0; animation-delay:0.4s;">
-                    <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 3"></div>
-                    <div class="blog-content">
-                        <span class="section-tag" style="margin-bottom:1rem; font-size:0.75rem;">Rehabilitation</span>
-                        <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">Post-Surgery Rehab: What to Expect</h3>
-                        <p style="color:var(--text-light); margin-bottom:1.5rem;">A comprehensive guide on the stages of recovery following major orthopedic surgery...</p>
-                        <a href="#" style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read More <i class="fas fa-arrow-right"></i></a>
+
+                    <div class="premium-card animate-fade-in-up" style="padding:0; animation-delay:0.4s;">
+                        <div class="blog-image"><img src="assets/images/hero-clinic.jpg" alt="Blog 3"></div>
+                        <div class="blog-content">
+                            <span class="section-tag"
+                                style="margin-bottom:1rem; font-size:0.75rem;">Rehabilitation</span>
+                            <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--deep-blue);">Post-Surgery
+                                Rehab: What to Expect</h3>
+                            <p style="color:var(--text-light); margin-bottom:1.5rem;">A comprehensive guide on the
+                                stages of recovery following major orthopedic surgery...</p>
+                            <a href="#"
+                                style="color:var(--primary-green); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
-<div id="footer-container"></div>
-<script src="js/include.js"></script>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="js/include.js"></script>
 </body>
+
 </html>

@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Patient Stories & Testimonials | HealthTouch</title>
+    <title>Patient Stories & Testimonials | healtouch</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <style>
-        .page-header { padding: 180px 0 100px; background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%); text-align: center; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
+        .page-header {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
     </style>
 </head>
+
 <body>
-<div id="header-container"></div>
-<main>
-    <section class="page-header animate-fade-in-up">
-        <div class="container">
-            <span class="section-tag">Success Stories</span>
-            <h1 class="section-title" style="font-size:3.5rem;">Patient <span class="gradient-text">Testimonials</span></h1>
-            <p class="section-subtitle">Real stories from our patients who have reclaimed their mobility and live pain-free lives.</p>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="testimonials-grid" id="fullTestimonialsGrid"></div>
-        </div>
-    </section>
-</main>
-<div id="footer-container"></div>
-<script src="js/include.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const testimonials = [
-            { name: "Rajesh K.", text: "After months of back pain, I found absolute relief here. The personalized care is unmatched.", init: "RK" },
-            { name: "Priya S.", text: "Excellent post-surgery rehab. The therapists are compassionate and the facility is premium.", init: "PS" },
-            { name: "Anand V.", text: "Recovered from a sports injury in half the expected time. Highly recommend HealthTouch!", init: "AV" },
-            { name: "Meena R.", text: "The women's health program was life-changing for my post-partum recovery.", init: "MR" },
-            { name: "Suresh M.", text: "Professional staff, clean environment, and effective treatment for my frozen shoulder.", init: "SM" },
-            { name: "Karthik D.", text: "Their clinical pilates sessions completely fixed my posture issues.", init: "KD" }
-        ];
-        document.getElementById('fullTestimonialsGrid').innerHTML = testimonials.map((t, i) => `
-            <div class="premium-card animate-fade-in-up" style="animation-delay: ${i*0.1}s">
+    <div id="header-container"></div>
+    <main>
+        <section class="page-header animate-fade-in-up">
+            <div class="container">
+                <span class="section-tag">Success Stories</span>
+                <h1 class="section-title" style="font-size:3.5rem;">Patient <span
+                        class="gradient-text">Testimonials</span></h1>
+                <p class="section-subtitle">Real stories from our patients who have reclaimed their mobility and live
+                    pain-free lives.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="testimonials-grid" id="fullTestimonialsGrid"></div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="js/include.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testimonials = [
+                { name: "Rajesh K.", text: "After months of back pain, I found absolute relief here. The personalized care is unmatched.", init: "RK" },
+                { name: "Priya S.", text: "Excellent post-surgery rehab. The therapists are compassionate and the facility is premium.", init: "PS" },
+                { name: "Anand V.", text: "Recovered from a sports injury in half the expected time. Highly recommend healtouch!", init: "AV" },
+                { name: "Meena R.", text: "The women's health program was life-changing for my post-partum recovery.", init: "MR" },
+                { name: "Suresh M.", text: "Professional staff, clean environment, and effective treatment for my frozen shoulder.", init: "SM" },
+                { name: "Karthik D.", text: "Their clinical pilates sessions completely fixed my posture issues.", init: "KD" }
+            ];
+            document.getElementById('fullTestimonialsGrid').innerHTML = testimonials.map((t, i) => `
+            <div class="premium-card animate-fade-in-up" style="animation-delay: ${i * 0.1}s">
                 <div style="color:#fbbf24; font-size:1.25rem; margin-bottom:1.5rem;">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
@@ -56,7 +70,8 @@
                 </div>
             </div>
         `).join('');
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>

@@ -66,7 +66,7 @@ class WhatsAppBooking {
     sendBooking(formData) {
         const message = this.generateAttractiveMessage(formData);
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/919751633111?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
         this.showSuccessMessage();
         return true;

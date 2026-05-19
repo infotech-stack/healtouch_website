@@ -1,117 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Wellness Services | HealthTouch</title>
-    <meta name="description" content="Holistic wellness therapy in Pondicherry. Preventive strength, clinical pilates, ergonomic posture assessment, and lifestyle management.">
+    <title>Wellness Services | healtouch</title>
+    <meta name="description"
+        content="Holistic wellness therapy in Pondicherry. Preventive strength, clinical pilates, ergonomic posture assessment, and lifestyle management.">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animations.css">
-    
+
     <style>
         .page-header {
             padding: 180px 0 100px;
             background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: #f4f6f8;
+            background-image:
+                url('../assets/images/hero/hero-physio-bg.png'),
+                url('../assets/images/hero/hero-rehab-bg.png'),
+                url('../assets/images/hero/hero-wellness-bg.png');
+            background-position: left top, center top, calc(100% + 8vw) top;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-size: auto 100%, auto 100%, auto 100%;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2.5rem;
             margin-top: 4rem;
         }
+
         .service-card {
             cursor: pointer;
         }
     </style>
 </head>
+
 <body>
 
-<div id="header-container"></div>
+    <div id="header-container"></div>
 
-<main>
-    <section class="page-header animate-fade-in-up">
-        <div class="container">
-            <span class="section-tag">Holistic Health</span>
-            <h1 class="section-title" style="font-size:3.5rem;">Wellness <span class="gradient-text">Services</span></h1>
-            <p class="section-subtitle">Proactive approaches to health, focusing on prevention, posture, and optimizing your body's natural potential.</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="services-grid" id="fullWellnessGrid">
-                <!-- Populated by JS -->
+    <main>
+        <section class="page-header animate-fade-in-up">
+            <div class="container">
+                <span class="section-tag">Holistic Health</span>
+                <h1 class="section-title" style="font-size:3.5rem;">Wellness <span class="gradient-text">Services</span>
+                </h1>
+                <p class="section-subtitle">Proactive approaches to health, focusing on prevention, posture, and
+                    optimizing your body's natural potential.</p>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<div id="footer-container"></div>
+        <section>
+            <div class="container">
+                <div class="services-grid" id="fullWellnessGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-<script src="../js/include.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const services = [
-            {
-                title: "Ergonomic Posture Assessment",
-                desc: "Detailed evaluation of your work/home setup to correct postural imbalances and prevent repetitive strain injuries.",
-                detailedContent: "Poor posture is the root cause of many chronic musculoskeletal issues. Our ergonomic posture assessment is a comprehensive evaluation of how you interact with your daily environment—whether at a desk, during physical labor, or at home. We identify postural imbalances, muscle weaknesses, and compensatory movement patterns. Following the assessment, we provide specific corrective exercises, workplace modifications, and postural re-education to prevent repetitive strain injuries and ensure long-term spine health.",
-                benefits: ["Reduced neck & back strain", "Increased workplace productivity", "Custom ergonomic advice", "Long-term spine health"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-chair"
-            },
-            {
-                title: "Medical & Sports Massage",
-                desc: "Deep tissue and therapeutic massage aimed at releasing muscle tension, improving circulation, and aiding recovery.",
-                detailedContent: "Unlike typical spa massages, our medical and sports massage therapy is clinically focused. Provided by trained therapists, these sessions target specific myofascial trigger points, adhesions, and areas of deep muscular tension. Whether you are recovering from an intense athletic event, dealing with chronic stress-induced muscle knots, or managing a localized injury, our targeted tissue work improves circulation, enhances tissue elasticity, and accelerates the body's natural recovery process.",
-                benefits: ["Relieved muscle knots", "Faster recovery post-workout", "Reduced stress & anxiety", "Improved tissue elasticity"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-spa"
-            },
-            {
-                title: "Clinical Pilates & Core Training",
-                desc: "Physiotherapist-led pilates focusing on deep core stability, flexibility, and controlled movement patterns.",
-                detailedContent: "Clinical Pilates is far more than just a fitness class; it is a highly specific, physiotherapist-led rehabilitation tool. We focus on activating the deep stabilizing muscles of the abdomen and spine. By emphasizing controlled, precise movements aligned with proper breathing techniques, Clinical Pilates is incredibly effective for rehabilitating lower back pain, correcting posture, preventing sports injuries, and enhancing overall body awareness and flexibility.",
-                benefits: ["Enhanced core strength", "Better body awareness", "Injury prevention", "Improved posture"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-yin-yang"
-            },
-            {
-                title: "Preventive Strength & Flexibility",
-                desc: "Customized exercise programs designed to build resilience and prevent future injuries before they occur.",
-                detailedContent: "The best treatment for an injury is preventing it from happening in the first place. Our preventive strength and flexibility programs are designed for proactive individuals who want to build physical resilience. After a thorough biomechanical screening, our physiotherapists create a customized, progressive exercise plan targeting your specific weaknesses. This program increases muscle tone, improves joint mobility, and is particularly effective for osteoporosis prevention and general fitness improvement.",
-                benefits: ["Increased muscle tone", "Better joint mobility", "Overall fitness improvement", "Osteoporosis prevention"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-heartbeat"
-            },
-            {
-                title: "Balance & Fall Prevention",
-                desc: "Specialized training to improve proprioception, stability, and confidence in daily movements, particularly for seniors.",
-                detailedContent: "A decline in balance can lead to devastating falls, particularly in the elderly population. Our balance and fall prevention programs use specific exercises to challenge your vestibular system, improve proprioception (your body's awareness of its position in space), and strengthen the lower extremities. We simulate real-world challenges in a safe environment, significantly reducing fall risk and giving you the confidence to navigate your daily life safely.",
-                benefits: ["Reduced risk of falls", "Enhanced spatial awareness", "Increased confidence walking", "Better lower-body stability"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-balance-scale"
-            },
-            {
-                title: "Lifestyle & Weight Management Advice",
-                desc: "Holistic guidance integrating safe physical activity with lifestyle modifications to support healthy weight management.",
-                detailedContent: "Achieving and maintaining a healthy weight is often complicated by joint pain or mobility issues. Our lifestyle and weight management program provides holistic guidance tailored to your physical capabilities. We integrate safe, low-impact physical activity protocols with practical lifestyle modifications. By working within your limits, we help improve your metabolic health, increase your daily energy levels, and support sustainable, long-term weight loss without exacerbating existing pain.",
-                benefits: ["Sustainable weight loss", "Safe exercise protocols", "Improved metabolic health", "Enhanced energy levels"],
-                img: "assets/images/hero-clinic.jpg",
-                icon: "fas fa-apple-alt"
-            }
-        ];
+    <div id="footer-container"></div>
 
-        const grid = document.getElementById('fullWellnessGrid');
-        grid.innerHTML = services.map((s, index) => {
-            const escapedDesc = s.desc.replace(/'/g, "\\'");
-            const escapedDetailed = (s.detailedContent || '').replace(/'/g, "\\'");
-            const benefitsJson = JSON.stringify(s.benefits).replace(/"/g, '&quot;');
-            return `
+    <script src="../js/include.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const services = [
+                {
+                    title: "Ergonomic Posture Assessment",
+                    desc: "Detailed evaluation of your work/home setup to correct postural imbalances and prevent repetitive strain injuries.",
+                    detailedContent: "Poor posture is the root cause of many chronic musculoskeletal issues. Our ergonomic posture assessment is a comprehensive evaluation of how you interact with your daily environment—whether at a desk, during physical labor, or at home. We identify postural imbalances, muscle weaknesses, and compensatory movement patterns. Following the assessment, we provide specific corrective exercises, workplace modifications, and postural re-education to prevent repetitive strain injuries and ensure long-term spine health.",
+                    benefits: ["Reduced neck & back strain", "Increased workplace productivity", "Custom ergonomic advice", "Long-term spine health"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-chair"
+                },
+                {
+                    title: "Medical & Sports Massage",
+                    desc: "Deep tissue and therapeutic massage aimed at releasing muscle tension, improving circulation, and aiding recovery.",
+                    detailedContent: "Unlike typical spa massages, our medical and sports massage therapy is clinically focused. Provided by trained therapists, these sessions target specific myofascial trigger points, adhesions, and areas of deep muscular tension. Whether you are recovering from an intense athletic event, dealing with chronic stress-induced muscle knots, or managing a localized injury, our targeted tissue work improves circulation, enhances tissue elasticity, and accelerates the body's natural recovery process.",
+                    benefits: ["Relieved muscle knots", "Faster recovery post-workout", "Reduced stress & anxiety", "Improved tissue elasticity"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-spa"
+                },
+                {
+                    title: "Clinical Pilates & Core Training",
+                    desc: "Physiotherapist-led pilates focusing on deep core stability, flexibility, and controlled movement patterns.",
+                    detailedContent: "Clinical Pilates is far more than just a fitness class; it is a highly specific, physiotherapist-led rehabilitation tool. We focus on activating the deep stabilizing muscles of the abdomen and spine. By emphasizing controlled, precise movements aligned with proper breathing techniques, Clinical Pilates is incredibly effective for rehabilitating lower back pain, correcting posture, preventing sports injuries, and enhancing overall body awareness and flexibility.",
+                    benefits: ["Enhanced core strength", "Better body awareness", "Injury prevention", "Improved posture"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-yin-yang"
+                },
+                {
+                    title: "Preventive Strength & Flexibility",
+                    desc: "Customized exercise programs designed to build resilience and prevent future injuries before they occur.",
+                    detailedContent: "The best treatment for an injury is preventing it from happening in the first place. Our preventive strength and flexibility programs are designed for proactive individuals who want to build physical resilience. After a thorough biomechanical screening, our physiotherapists create a customized, progressive exercise plan targeting your specific weaknesses. This program increases muscle tone, improves joint mobility, and is particularly effective for osteoporosis prevention and general fitness improvement.",
+                    benefits: ["Increased muscle tone", "Better joint mobility", "Overall fitness improvement", "Osteoporosis prevention"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-heartbeat"
+                },
+                {
+                    title: "Balance & Fall Prevention",
+                    desc: "Specialized training to improve proprioception, stability, and confidence in daily movements, particularly for seniors.",
+                    detailedContent: "A decline in balance can lead to devastating falls, particularly in the elderly population. Our balance and fall prevention programs use specific exercises to challenge your vestibular system, improve proprioception (your body's awareness of its position in space), and strengthen the lower extremities. We simulate real-world challenges in a safe environment, significantly reducing fall risk and giving you the confidence to navigate your daily life safely.",
+                    benefits: ["Reduced risk of falls", "Enhanced spatial awareness", "Increased confidence walking", "Better lower-body stability"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-balance-scale"
+                },
+                {
+                    title: "Lifestyle & Weight Management Advice",
+                    desc: "Holistic guidance integrating safe physical activity with lifestyle modifications to support healthy weight management.",
+                    detailedContent: "Achieving and maintaining a healthy weight is often complicated by joint pain or mobility issues. Our lifestyle and weight management program provides holistic guidance tailored to your physical capabilities. We integrate safe, low-impact physical activity protocols with practical lifestyle modifications. By working within your limits, we help improve your metabolic health, increase your daily energy levels, and support sustainable, long-term weight loss without exacerbating existing pain.",
+                    benefits: ["Sustainable weight loss", "Safe exercise protocols", "Improved metabolic health", "Enhanced energy levels"],
+                    img: "assets/images/hero-clinic.jpg",
+                    icon: "fas fa-apple-alt"
+                }
+            ];
+
+            const grid = document.getElementById('fullWellnessGrid');
+            grid.innerHTML = services.map((s, index) => {
+                const escapedDesc = s.desc.replace(/'/g, "\\'");
+                const escapedDetailed = (s.detailedContent || '').replace(/'/g, "\\'");
+                const benefitsJson = JSON.stringify(s.benefits).replace(/"/g, '&quot;');
+                return `
             <div class="premium-card service-card animate-fade-in-up" style="animation-delay: ${index * 0.1}s" 
                  onclick="openServiceModal('${s.title}', '${escapedDesc}', ${benefitsJson}, '${s.img}', '${escapedDetailed}')">
                 <div class="service-icon" style="background: linear-gradient(135deg, #10b981, var(--primary-green));"><i class="${s.icon}"></i></div>
@@ -120,8 +150,9 @@
                 <span style="color:var(--primary-green); font-weight:600; display:flex; align-items:center; gap:5px;">Book Wellness Session <i class="fas fa-arrow-right"></i></span>
             </div>
             `;
-        }).join('');
-    });
-</script>
+            }).join('');
+        });
+    </script>
 </body>
+
 </html>

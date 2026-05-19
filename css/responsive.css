@@ -42,6 +42,13 @@
         font-size: 1.75rem;
     }
     
+    .logo-link {
+        width: 80px !important;
+        height: 80px !important;
+        margin-top: 0 !important;
+        margin-bottom: -15px !important; 
+    }
+    
     .hero-buttons {
         flex-direction: column;
     }

@@ -46,16 +46,16 @@ function initWhatsAppForm(formId, serviceName = '') {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const fullName = form.querySelector('#fullName')?.value || '';
+        const fullName = form.querySelector('#fullName')?.value || form.querySelector('#contactName')?.value || '';
         const phone = form.querySelector('#phone')?.value || '';
-        const email = form.querySelector('#email')?.value || '';
+        const email = form.querySelector('#email')?.value || form.querySelector('#contactEmail')?.value || '';
         const service = form.querySelector('#serviceSelect')?.value || serviceName || 'General Inquiry';
         const date = form.querySelector('#date')?.value || 'Flexible';
-        const info = form.querySelector('#info')?.value || 'None';
+        const info = form.querySelector('#info')?.value || form.querySelector('#contactMessage')?.value || 'None';
 
-        const msg = `Hello HealthTouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
+        const msg = `Hello healtouch, I want to book an appointment.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n*Date:* ${date}\n*Additional Info:* ${info}\n\nPlease confirm my appointment slot.`;
 
-        window.open(`https://wa.me/+91 9751633111?text=${msg}`, '_blank');
+        window.open(`https://wa.me/919751633111?text=${encodeURIComponent(msg)}`, '_blank');
     });
 }
 
@@ -169,14 +169,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Determine current page key
         let currentPage = 'index';
-        if (path.includes('about'))          currentPage = 'about';
-        else if (path.includes('contact'))   currentPage = 'contact';
+        if (path.includes('about')) currentPage = 'about';
+        else if (path.includes('contact')) currentPage = 'contact';
         else if (path.includes('appointment')) currentPage = 'appointment';
-        else if (path.includes('physiotherapy'))  currentPage = 'physiotherapy';
+        else if (path.includes('physiotherapy')) currentPage = 'physiotherapy';
         else if (path.includes('rehabilitation')) currentPage = 'rehabilitation';
-        else if (path.includes('wellness'))       currentPage = 'wellness';
-        else if (path.includes('blog'))       currentPage = 'blog';
-        else if (path.includes('faq'))        currentPage = 'faq';
+        else if (path.includes('wellness')) currentPage = 'wellness';
+        else if (path.includes('blog')) currentPage = 'blog';
+        else if (path.includes('faq')) currentPage = 'faq';
         else if (path.includes('testimonial')) currentPage = 'testimonials';
 
         // Apply active class to matching nav-links
@@ -187,9 +187,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         // ── Mobile Menu (Hamburger) ──────────────────────────────────
-        const mobileMenuBtn  = document.getElementById('mobileMenu');
-        const navMenu        = document.getElementById('navMenu');
-        const navBackdrop    = document.getElementById('navBackdrop');
+        const mobileMenuBtn = document.getElementById('mobileMenu');
+        const navMenu = document.getElementById('navMenu');
+        const navBackdrop = document.getElementById('navBackdrop');
 
         function openNav() {
             navMenu.classList.add('active');
@@ -236,5 +236,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Initialize any page-level forms
-    initWhatsAppForm('appointmentForm');
+    const forms = ['appointmentForm', 'homeAppointmentForm', 'contactForm', 'mainAppointmentForm'];
+    forms.forEach(formId => {
+        initWhatsAppForm(formId);
+    });
 });

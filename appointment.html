@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Book Appointment | HealthTouch</title>
+    <title>Book Appointment | healtouch</title>
     <meta name="description"
-        content="Book an appointment at HealthTouch Physio & Rehab Centre in Pondicherry. Easy WhatsApp booking.">
+        content="Book an appointment at healtouch Physio & Rehab Centre in Pondicherry. Easy WhatsApp booking.">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,6 +18,27 @@
             padding: 180px 0 100px;
             background: linear-gradient(135deg, var(--soft-gray) 0%, var(--white) 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                url('assets/images/hero/appointment-left-bg.png'),
+                url('assets/images/hero/appointment-right-bg.png');
+            background-position: left bottom, right bottom;
+            background-repeat: no-repeat, no-repeat;
+            background-size: auto 90%, auto 90%;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1;
         }
 
         .booking-container {
@@ -156,9 +177,9 @@
                     const date = form.querySelector('#date').value || 'Flexible';
                     const info = form.querySelector('#info').value || 'None';
 
-                    const msg = `Hello HealthTouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
+                    const msg = `Hello healtouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
 
-                    window.open(`https://wa.me/+91 9751633111?text=${msg}`, '_blank');
+                    window.open(`https://wa.me/919751633111?text=${msg}`, '_blank');
                 });
             }
         });

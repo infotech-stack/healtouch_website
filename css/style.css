@@ -199,29 +199,63 @@ section {
     justify-content: space-between;
     align-items: center;
     padding: 0.85rem 0;
-    transition: padding 0.3s ease;
+    transition: padding 0.4s ease;
     gap: 2rem;
+}
+
+.sticky-header.scrolled .navbar {
+    padding: 0.4rem 0;
 }
 
 /* Logo */
 .logo-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     flex-shrink: 0;
+    
+    background: #ffffff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    
+    margin-top: -5px;
+    margin-bottom: -45px; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1050;
+    transition: all 0.4s ease;
+}
+
+.sticky-header.scrolled .logo-link {
+    width: 90px;
+    height: 90px;
+    margin-bottom: -25px; /* Hangs down gracefully when header shrinks */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .logo-img {
-    height: 50px;
+    max-width: 78%;
+    max-height: 78%;
     width: auto;
-    transform: scale(1.35);
-    transform-origin: left center;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    height: auto;
+    transform: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    width: 75px;
+    height: 75px;
+    margin-top: 0;
+    margin-bottom: -5px; /* 75 - 0 - 5 = 70px flow height */
+    box-shadow: 0 4px 12px rgba(11, 138, 47, 0.12);
+    transform: translateY(0);
 }
 
 .logo-link:hover .logo-img {
-    transform: scale(1.42);
-    filter: drop-shadow(0 4px 10px rgba(11, 138, 47, 0.25));
+    transform: scale(1.15); /* Slightly zooms the logo to fill the smaller circle better */
 }
 
 /* Nav menu */
@@ -419,42 +453,25 @@ section {
     align-items: center;
     gap: 8px;
     padding: 0.6rem 1.4rem;
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--primary-green) 100%);
+    background-size: 200% 100%;
+    background-position: left center;
     color: white !important;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 700;
     font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.4s ease;
     box-shadow: 0 4px 16px rgba(11, 138, 47, 0.3);
     white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-book-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .nav-book-btn:hover {
+    background-position: right center;
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 8px 24px rgba(11, 138, 47, 0.45);
-}
-
-.nav-book-btn:hover::before {
-    opacity: 1;
-}
-
-.nav-book-btn i,
-.nav-book-btn span {
-    position: relative;
-    z-index: 1;
+    color: white !important;
 }
 
 /* ---- Hamburger ---- */
