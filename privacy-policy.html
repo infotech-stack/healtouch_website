@@ -16,6 +16,7 @@
             background: var(--soft-gray);
             padding: 60px 0;
             text-align: center;
+            margin-top: 100px;
         }
 
         .legal-content {
@@ -60,25 +61,7 @@
 
 <body>
 
-    <header class="sticky-header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="healtouch"
-                            class="logo-img" onerror="this.style.display='none'"><span>healtouch</span></a></div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services/physiotherapy.html">Services</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="appointment.html" class="btn-primary btn-small">Book Appointment</a></li>
-                </ul>
-                <div class="mobile-menu"><i class="fas fa-bars"></i></div>
-            </nav>
-        </div>
-    </header>
+    <div id="header-container"></div>
 
     <main>
         <section class="legal-hero">
@@ -132,20 +115,11 @@
             <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an
                 updated revision date.</p>
 
-            <div class="last-updated"><i class="fas fa-calendar-alt"></i> Last Updated: May 18, 2025</div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 healtouch. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a
-                        href="terms-conditions.html">Terms & Conditions</a></p>
-            </div>
-        </div>
-    </footer>
-    <a href="https://wa.me/919751633111" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <script src="js/main.js"></script>
+    <div id="footer-container"></div>
+    <script src="js/include.js?v=2.1"></script>
 </body>
 
 </html>

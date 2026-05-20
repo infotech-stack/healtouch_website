@@ -187,12 +187,13 @@
             if (form) {
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                     const name = form.querySelector('#contactName').value;
                     const email = form.querySelector('#contactEmail').value;
                     const message = form.querySelector('#contactMessage').value;
 
-                    const msg = `Hello healtouch, I have an inquiry.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-                    window.open(`https://wa.me/919751633111?text=${msg}`, '_blank');
+                    const msg = `Hello healtouch, I have an inquiry.\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+                    window.open(`https://wa.me/919751633111?text=${encodeURIComponent(msg)}`, '_blank');
                 });
             }
         });

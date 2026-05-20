@@ -48,6 +48,28 @@
             position: relative;
             z-index: 10;
         }
+
+        .booking-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 25px 50px -12px rgba(11, 138, 47, 0.15), 0 0 0 1px rgba(11, 138, 47, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
+        }
+
+        @media (max-width: 768px) {
+            .booking-card {
+                padding: 2rem 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -69,7 +91,7 @@
         <section style="padding-top:0;">
             <div class="container">
                 <div class="booking-container">
-                    <div class="glass-form animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="booking-card animate-fade-in-up" style="animation-delay: 0.2s;">
                         <form id="mainAppointmentForm">
                             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
                                 <div class="form-group">
@@ -130,9 +152,15 @@
                                         </optgroup>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="date">Preferred Date</label>
-                                    <input type="date" id="date">
+                                <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                                    <div>
+                                        <label for="date">Preferred Date</label>
+                                        <input type="date" id="date">
+                                    </div>
+                                    <div>
+                                        <label for="time">Preferred Time</label>
+                                        <input type="text" id="time" disabled placeholder="e.g., 10:30 AM" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'">
+                                    </div>
                                 </div>
                             </div>
 
@@ -163,28 +191,6 @@
     <div id="footer-container"></div>
 
     <script src="js/include.js?v=2.1"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // We can use the global initWhatsAppForm from include.js, 
-            // but since this form has a specific location field, we'll implement a custom interceptor here for extra details.
-            const form = document.getElementById('mainAppointmentForm');
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const fullName = form.querySelector('#fullName').value;
-                    const phone = form.querySelector('#phone').value;
-                    const email = form.querySelector('#email').value || 'Not provided';
-                    const service = form.querySelector('#serviceSelect').value;
-                    const date = form.querySelector('#date').value || 'Flexible';
-                    const info = form.querySelector('#info').value || 'None';
-
-                    const msg = `Hello healtouch, I want to book an appointment.%0A%0A*Name:* ${fullName}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Service:* ${service}%0A*Date:* ${date}%0A*Additional Info:* ${info}%0A%0APlease confirm my appointment slot.`;
-
-                    window.open(`https://wa.me/919751633111?text=${msg}`, '_blank');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -44,6 +44,20 @@ function initWhatsAppForm(formId, serviceName = '') {
         if (serviceSelect) serviceSelect.value = serviceName;
     }
 
+    const dateInput = form.querySelector('#date');
+    const timeInput = form.querySelector('#time');
+    
+    if (dateInput && timeInput) {
+        dateInput.addEventListener('change', () => {
+            if (dateInput.value) {
+                timeInput.disabled = false;
+            } else {
+                timeInput.disabled = true;
+                timeInput.value = '';
+            }
+        });
+    }
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const fullName = form.querySelector('#fullName')?.value || form.querySelector('#contactName')?.value || '';
@@ -51,9 +65,16 @@ function initWhatsAppForm(formId, serviceName = '') {
         const email = form.querySelector('#email')?.value || form.querySelector('#contactEmail')?.value || '';
         const service = form.querySelector('#serviceSelect')?.value || serviceName || 'General Inquiry';
         const date = form.querySelector('#date')?.value || 'Flexible';
+        const time = form.querySelector('#time')?.value || '';
         const info = form.querySelector('#info')?.value || form.querySelector('#contactMessage')?.value || 'None';
 
-        const msg = `Hello healtouch, I want to book an appointment.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n*Date:* ${date}\n*Additional Info:* ${info}\n\nPlease confirm my appointment slot.`;
+        let msg = '';
+        if (formId === 'homeAppointmentForm') {
+            msg = `Hello healtouch, I want to schedule a visit.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Service:* ${service}\n\nPlease contact me to confirm.`;
+        } else {
+            const dateTimeStr = (date !== 'Flexible' && time) ? `${date} at ${time}` : date;
+            msg = `Hello healtouch, I want to book an appointment.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n*Date:* ${dateTimeStr}\n*Additional Info:* ${info}\n\nPlease confirm my appointment slot.`;
+        }
 
         window.open(`https://wa.me/919751633111?text=${encodeURIComponent(msg)}`, '_blank');
     });
@@ -94,7 +115,10 @@ function openServiceModal(title, description, benefits, imageUrl, detailedConten
                         <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" required></div>
                         <div class="form-group"><input type="email" id="email" placeholder="Email Address (Optional)"></div>
                         <!-- Location removed -->
-                        <div class="form-group"><input type="date" id="date"></div>
+                        <div class="form-group" style="display:flex; gap:1rem;">
+                            <input type="date" id="date" style="flex:1;">
+                            <input type="text" id="time" disabled placeholder="Time (e.g. 10:30 AM)" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'" style="flex:1;">
+                        </div>
                         <div class="form-group">
                             <select id="serviceSelect" required style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif;">
                                 <option value="" disabled>Select a Service</option>
@@ -236,7 +260,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Initialize any page-level forms
-    const forms = ['appointmentForm', 'homeAppointmentForm', 'contactForm', 'mainAppointmentForm'];
+    const forms = ['appointmentForm', 'homeAppointmentForm', 'mainAppointmentForm'];
     forms.forEach(formId => {
         initWhatsAppForm(formId);
     });
