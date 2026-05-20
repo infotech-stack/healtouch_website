@@ -93,7 +93,7 @@
                 <div class="booking-container">
                     <div class="booking-card animate-fade-in-up" style="animation-delay: 0.2s;">
                         <form id="mainAppointmentForm">
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div class="form-row">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
                                     <input type="text" id="fullName" placeholder="John Doe" required>
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
 
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div class="form-row">
                                 <div class="form-group">
                                     <label for="email">Email Address (Optional)</label>
                                     <input type="email" id="email" placeholder="john@example.com">
@@ -121,9 +121,8 @@
                                 </div>
                             </div>
 
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
-                                <div class="form-group">
-                                    <label for="serviceSelect">Service Required</label>
+                            <div class="form-group">
+                                <label for="serviceSelect">Service Required</label>
                                     <select id="serviceSelect" required>
                                         <option value="" disabled selected>Select a Service</option>
                                         <optgroup label="Physiotherapy">
@@ -163,20 +162,17 @@
                                                 Management Advice</option>
                                         </optgroup>
                                     </select>
-                                </div>
-                                <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
-                                    <div>
-                                        <label for="date">Preferred Date</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Preferred Date</label>
                                         <input type="date" id="date">
                                     </div>
-                                    <div>
+                                    <div class="form-group">
                                         <label for="time">Preferred Time</label>
                                         <input type="text" id="time" disabled placeholder="e.g., 10:30 AM" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'">
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Location removed -->
 
                             <div class="form-group">
                                 <label for="info">Additional Information / Symptoms</label>

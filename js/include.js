@@ -124,9 +124,9 @@ function openServiceModal(title, description, benefits, imageUrl, detailedConten
                                 <option value="Villupuram">Villupuram</option>
                             </select>
                         </div>
-                        <div class="form-group" style="display:flex; gap:1rem;">
-                            <input type="date" id="date" style="flex:1;">
-                            <input type="text" id="time" disabled placeholder="Time (e.g. 10:30 AM)" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'" style="flex:1;">
+                        <div class="form-row">
+                            <div class="form-group"><input type="date" id="date"></div>
+                            <div class="form-group"><input type="text" id="time" disabled placeholder="Time (e.g. 10:30 AM)" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'"></div>
                         </div>
                         <div class="form-group">
                             <select id="serviceSelect" required style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif;">
