@@ -151,6 +151,15 @@
                                     <input type="email" id="contactEmail" placeholder="Your Email" required>
                                 </div>
                                 <div class="form-group">
+                                    <select id="contactPlace" required>
+                                        <option value="" disabled selected>Select Your Location</option>
+                                        <option value="Pondicherry">Pondicherry</option>
+                                        <option value="Cuddalore">Cuddalore</option>
+                                        <option value="Tindivanam">Tindivanam</option>
+                                        <option value="Villupuram">Villupuram</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <textarea id="contactMessage" rows="5" placeholder="How can we help you?"
                                         required></textarea>
                                 </div>
@@ -190,9 +199,10 @@
                     e.stopImmediatePropagation();
                     const name = form.querySelector('#contactName').value;
                     const email = form.querySelector('#contactEmail').value;
+                    const place = form.querySelector('#contactPlace').value;
                     const message = form.querySelector('#contactMessage').value;
 
-                    const msg = `Hello healtouch, I have an inquiry.\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+                    const msg = `Hello healtouch, I have an inquiry.\n\n*Name:* ${name}\n*Email:* ${email}\n*Location:* ${place}\n*Message:* ${message}`;
                     window.open(`https://wa.me/919751633111?text=${encodeURIComponent(msg)}`, '_blank');
                 });
             }

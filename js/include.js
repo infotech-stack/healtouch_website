@@ -66,14 +66,15 @@ function initWhatsAppForm(formId, serviceName = '') {
         const service = form.querySelector('#serviceSelect')?.value || serviceName || 'General Inquiry';
         const date = form.querySelector('#date')?.value || 'Flexible';
         const time = form.querySelector('#time')?.value || '';
+        const place = form.querySelector('#place')?.value || 'Not provided';
         const info = form.querySelector('#info')?.value || form.querySelector('#contactMessage')?.value || 'None';
 
         let msg = '';
         if (formId === 'homeAppointmentForm') {
-            msg = `Hello healtouch, I want to schedule a visit.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Service:* ${service}\n\nPlease contact me to confirm.`;
+            msg = `Hello healtouch, I want to schedule a visit.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Location:* ${place}\n*Service:* ${service}\n\nPlease contact me to confirm.`;
         } else {
             const dateTimeStr = (date !== 'Flexible' && time) ? `${date} at ${time}` : date;
-            msg = `Hello healtouch, I want to book an appointment.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n*Date:* ${dateTimeStr}\n*Additional Info:* ${info}\n\nPlease confirm my appointment slot.`;
+            msg = `Hello healtouch, I want to book an appointment.\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Email:* ${email}\n*Location:* ${place}\n*Service:* ${service}\n*Date:* ${dateTimeStr}\n*Additional Info:* ${info}\n\nPlease confirm my appointment slot.`;
         }
 
         window.open(`https://wa.me/919751633111?text=${encodeURIComponent(msg)}`, '_blank');
@@ -114,7 +115,15 @@ function openServiceModal(title, description, benefits, imageUrl, detailedConten
                         <div class="form-group"><input type="text" id="fullName" placeholder="Full Name" required></div>
                         <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" required></div>
                         <div class="form-group"><input type="email" id="email" placeholder="Email Address (Optional)"></div>
-                        <!-- Location removed -->
+                        <div class="form-group">
+                            <select id="place" required style="width:100%; padding:14px 18px; border:1px solid var(--gray-200); border-radius:16px; font-family:'Inter', sans-serif;">
+                                <option value="" disabled selected>Select Your Location</option>
+                                <option value="Pondicherry">Pondicherry</option>
+                                <option value="Cuddalore">Cuddalore</option>
+                                <option value="Tindivanam">Tindivanam</option>
+                                <option value="Villupuram">Villupuram</option>
+                            </select>
+                        </div>
                         <div class="form-group" style="display:flex; gap:1rem;">
                             <input type="date" id="date" style="flex:1;">
                             <input type="text" id="time" disabled placeholder="Time (e.g. 10:30 AM)" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'" style="flex:1;">
