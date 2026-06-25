@@ -505,7 +505,8 @@
         .welcome-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(10, 20, 15, 0.6); /* Sleek dark green-tinted backdrop */
+            background: rgba(10, 20, 15, 0.6);
+            /* Sleek dark green-tinted backdrop */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             display: flex;
@@ -566,8 +567,15 @@
         }
 
         @keyframes heartbeat-modal {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
         }
 
         .welcome-modal-title {
@@ -675,6 +683,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -691,8 +700,10 @@
                 <i class="fas fa-heartbeat"></i>
             </div>
             <h2 class="welcome-modal-title">Welcome to <span class="gradient-text">HealTouch Physio!</span></h2>
-            <p class="welcome-modal-subtitle">Experience premium, customized physiotherapy and rehabilitation. Let us guide you on your journey to a pain-free, active, and healthy lifestyle.</p>
-            <button id="welcomeDismissBtn" class="welcome-btn">Let's Get Started <i class="fas fa-arrow-right"></i></button>
+            <p class="welcome-modal-subtitle">Experience premium, customized physiotherapy and rehabilitation. Let us
+                guide you on your journey to a pain-free, active, and healthy lifestyle.</p>
+            <button id="welcomeDismissBtn" class="welcome-btn">Let's Get Started <i
+                    class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
@@ -738,18 +749,22 @@
                             <div class="marquee-track">
                                 <div class="marquee-item">🚀 Say Goodbye to Pain with HealTouch Physio & Rehab! 🚀</div>
                                 <div class="marquee-item">Expert care customized for your lifestyle.</div>
-                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 | Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
+                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 |
+                                    Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
                                 <div class="marquee-item">📞 Contact Us: +91 97516 33111</div>
-                                <div class="marquee-item">📧 Email: care@healtouch.com</div>
-                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute priority! ✨</div>
-                                
+                                <div class="marquee-item">📧 Email: healtouch5@gmail.com</div>
+                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute
+                                    priority! ✨</div>
+
                                 <!-- Duplicate items for seamless continuous looping -->
                                 <div class="marquee-item">🚀 Say Goodbye to Pain with HealTouch Physio & Rehab! 🚀</div>
                                 <div class="marquee-item">Expert care customized for your lifestyle.</div>
-                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 | Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
+                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 |
+                                    Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
                                 <div class="marquee-item">📞 Contact Us: +91 97516 33111</div>
-                                <div class="marquee-item">📧 Email: care@healtouch.com</div>
-                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute priority! ✨</div>
+                                <div class="marquee-item">📧 Email: healtouch5@gmail.com</div>
+                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute
+                                    priority! ✨</div>
                             </div>
                         </div>
 
@@ -902,11 +917,15 @@
         </section>
 
         <!-- Locations Banner -->
-        <section style="background: linear-gradient(135deg, var(--deep-blue), #0f3a73); padding: 50px 0; color: white; margin-top: 0;">
+        <section
+            style="background: linear-gradient(135deg, var(--deep-blue), #0f3a73); padding: 50px 0; color: white; margin-top: 0;">
             <div class="container text-center">
-                <h3 style="color: rgba(255, 255, 255, 0.9); font-size: clamp(1.2rem, 3vw, 1.75rem); margin-bottom: 0; font-weight: 400; font-family: 'Poppins', sans-serif; line-height: 1.5;">
-                    <i class="fas fa-map-marker-alt" style="margin-right: 12px; color: var(--light-green); font-size: 1.2em; vertical-align: text-bottom;"></i>
-                    We proudly provide our services across <strong style="font-weight: 700; color: white;">Pondicherry, Cuddalore, Tindivanam, & Villupuram</strong>
+                <h3
+                    style="color: rgba(255, 255, 255, 0.9); font-size: clamp(1.2rem, 3vw, 1.75rem); margin-bottom: 0; font-weight: 400; font-family: 'Poppins', sans-serif; line-height: 1.5;">
+                    <i class="fas fa-map-marker-alt"
+                        style="margin-right: 12px; color: var(--light-green); font-size: 1.2em; vertical-align: text-bottom;"></i>
+                    We proudly provide our services across <strong style="font-weight: 700; color: white;">Pondicherry,
+                        Cuddalore, Tindivanam, & Villupuram</strong>
                 </h3>
             </div>
         </section>
@@ -953,7 +972,8 @@
                         </form>
                     </div>
                     <div class="map-container">
-                        <iframe src="https://maps.google.com/maps?q=No.%204,%20Second%20Cross%20Street,%20Anna%20Nagar,%20Nellithope,%20Puducherry%20-%20605005.%20(Housing%20Board%20Back%20Side)&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        <iframe
+                            src="https://maps.google.com/maps?q=No.%204,%20Second%20Cross%20Street,%20Anna%20Nagar,%20Nellithope,%20Puducherry%20-%20605005.%20(Housing%20Board%20Back%20Side)&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -1112,7 +1132,7 @@
                 // Show modal with a tiny delay for premium smooth transition effect
                 setTimeout(() => {
                     welcomeModal.classList.add('active');
-                    
+
                     // Trigger the colorful confetti celebration paper blast
                     if (typeof confetti === 'function') {
                         // Wave 1: Energetic High-Velocity Burst
