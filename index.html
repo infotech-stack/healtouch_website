@@ -100,7 +100,14 @@
             display: flex;
             gap: 1rem;
             margin-bottom: 3rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+        }
+
+        .hero-buttons .btn-primary,
+        .hero-buttons .btn-outline {
+            padding: 14px 28px;
+            font-size: 1.05rem;
+            white-space: nowrap;
         }
 
         .trust-badges {
@@ -367,8 +374,9 @@
             }
 
             /* Show image BELOW text on tablet/mobile */
-            .hero-image {
+            .hero-right-col {
                 order: 2;
+                gap: 1.5rem;
             }
 
             .hero-content {
@@ -409,7 +417,8 @@
             /* ── Services section: stack header + button ── */
             .services-section-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                text-align: center;
                 gap: 0.75rem;
             }
 
@@ -603,6 +612,73 @@
         .welcome-btn:active {
             transform: translateY(-1px);
         }
+
+        /* Hero Marquee Styling */
+        .hero-right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            width: 100%;
+            align-items: center;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(11, 138, 47, 0.15);
+            border-radius: 20px;
+            padding: 14px 0;
+            display: flex;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(11, 138, 47, 0.05);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-marquee 38s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 2rem;
+            color: var(--deep-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        }
+
+        .marquee-item i {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        .marquee-item.brand-name {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        @keyframes scroll-marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 
@@ -656,34 +732,57 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-image animate-fade-in-left">
-                        <!-- Swiper Hero Slider -->
-                        <div class="swiper hero-swiper">
-                            <div class="swiper-wrapper">
-                                <!-- Slide 1: Physiotherapy -->
-                                <div class="swiper-slide"
-                                    style="display: flex; justify-content: center; align-items: center;">
-                                    <img src="assets/images/hero/hero-wellnesscare.png"
-                                        alt="healtouch Physiotherapy Expert Care"
-                                        onerror="this.src='https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80';">
-                                </div>
-                                <!-- Slide 2: Rehabilitation -->
-                                <div class="swiper-slide"
-                                    style="display: flex; justify-content: center; align-items: center;">
-                                    <img src="assets/images/hero/hero-Physiotherapy.png"
-                                        alt="healtouch Rehabilitation Expert Care"
-                                        onerror="this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901d?auto=format&fit=crop&w=800&q=80';">
-                                </div>
-                                <!-- Slide 3: Wellness Care -->
-                                <div class="swiper-slide"
-                                    style="display: flex; justify-content: center; align-items: center;">
-                                    <img src="assets/images/hero/hero-rehabilitation.png"
-                                        alt="healtouch Wellness & Prevention Care"
-                                        onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80';">
-                                </div>
+                    <div class="hero-right-col animate-fade-in-left">
+                        <!-- Premium Scrolling Marquee Info -->
+                        <div class="marquee-container">
+                            <div class="marquee-track">
+                                <div class="marquee-item">🚀 Say Goodbye to Pain with HealTouch Physio & Rehab! 🚀</div>
+                                <div class="marquee-item">Expert care customized for your lifestyle.</div>
+                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 | Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
+                                <div class="marquee-item">📞 Contact Us: +91 97516 33111</div>
+                                <div class="marquee-item">📧 Email: care@healtouch.com</div>
+                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute priority! ✨</div>
+                                
+                                <!-- Duplicate items for seamless continuous looping -->
+                                <div class="marquee-item">🚀 Say Goodbye to Pain with HealTouch Physio & Rehab! 🚀</div>
+                                <div class="marquee-item">Expert care customized for your lifestyle.</div>
+                                <div class="marquee-item">🩺 Specialties: Back, Neck, & Shoulder Pain Treatment 💥 | Sports Injury Rehab 👟 | Post-Op Recovery 🩹</div>
+                                <div class="marquee-item">📞 Contact Us: +91 97516 33111</div>
+                                <div class="marquee-item">📧 Email: care@healtouch.com</div>
+                                <div class="marquee-item">⭐ 5.0 Google Rated Clinic — Your recovery is our absolute priority! ✨</div>
                             </div>
-                            <!-- Pill Pagination Indicators -->
-                            <div class="swiper-pagination hero-swiper-pagination"></div>
+                        </div>
+
+                        <!-- Floating Hero Image Swiper -->
+                        <div class="hero-image">
+                            <!-- Swiper Hero Slider -->
+                            <div class="swiper hero-swiper">
+                                <div class="swiper-wrapper">
+                                    <!-- Slide 1: Physiotherapy -->
+                                    <div class="swiper-slide"
+                                        style="display: flex; justify-content: center; align-items: center;">
+                                        <img src="assets/images/hero/hero-wellnesscare.png"
+                                            alt="healtouch Physiotherapy Expert Care"
+                                            onerror="this.src='https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80';">
+                                    </div>
+                                    <!-- Slide 2: Rehabilitation -->
+                                    <div class="swiper-slide"
+                                        style="display: flex; justify-content: center; align-items: center;">
+                                        <img src="assets/images/hero/hero-Physiotherapy.png"
+                                            alt="healtouch Rehabilitation Expert Care"
+                                            onerror="this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901d?auto=format&fit=crop&w=800&q=80';">
+                                    </div>
+                                    <!-- Slide 3: Wellness Care -->
+                                    <div class="swiper-slide"
+                                        style="display: flex; justify-content: center; align-items: center;">
+                                        <img src="assets/images/hero/hero-rehabilitation.png"
+                                            alt="healtouch Wellness & Prevention Care"
+                                            onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80';">
+                                    </div>
+                                </div>
+                                <!-- Pill Pagination Indicators -->
+                                <div class="swiper-pagination hero-swiper-pagination"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
